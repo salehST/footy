@@ -1,0 +1,48 @@
+.pane {}
+
+.pane + .pane {
+    margin-top: rem(30);
+}
+
+.pane__title {
+    @include text-section-title();
+}
+
+.pane__body {
+    position: relative;
+    padding: rem(20);
+    border-radius: rem(10);
+    background-color: $color-white;
+    box-shadow: 0 rem(3) rem(6) 0 rgba(0,0,0,0.13);
+}
+
+.pane__field {
+    position: relative;
+
+    & + & {
+        margin-top: rem(16);
+    }
+}
+
+.pane__edit {
+    background-color: $color-white;
+    border: 0;
+    color: $color-orange;
+    display: flex;
+    font-size: rem(12);
+    font-weight: 600;
+    line-height: (16/10);
+    padding: 0;
+    position: absolute;
+    right: rem(20);
+    top: rem(20);
+
+    .is-editing & {
+        color: $color-orange;
+    }
+
+    .pane__field & {
+        top: 0;
+        right: 0;
+    }
+}

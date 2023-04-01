@@ -1,0 +1,9 @@
+query GetDeletedTeams($leagueId: uuid!) {
+	join_league_teams(where: { league_id: { _eq: $leagueId }, deleted_at: { _is_null: false } }) {
+		id
+		deleted_at
+		team {
+			id
+		}
+	}
+}

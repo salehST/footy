@@ -1,0 +1,32 @@
+mutation createNewPlayer($player: [players_insert_input!]!) {
+	insert_players(objects: $player) {
+		returning {
+			id
+			city
+			email
+			firebase_id
+			first_name
+			gender
+			language
+			last_name
+			phone_number
+			ringer
+			status
+			whatsapp
+			zendesk_id
+			photo_url
+			join_players_teams {
+				teamObj: teamByTeam {
+					id
+					name
+					finals: join_team_finals {
+						id: finals
+					}
+					leagues: league_teams {
+						id: league_id
+					}
+				}
+			}
+		}
+	}
+}

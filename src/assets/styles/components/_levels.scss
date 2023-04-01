@@ -1,0 +1,65 @@
+.levels {
+	padding: 0;
+	margin: 0;
+	color: $color-orange;
+	font-family: $font-roboto;
+	font-size: rem(12);
+	font-weight: 500;
+	line-height: (16/12);
+}
+
+.level {
+	display: flex;
+	align-items: center;
+	list-style: none none;
+
+	// &::before {
+	//     display: flex;
+	//     align-items: center;
+	//     justify-content: center;
+	//     width: rem(16);
+	//     height: rem(16);
+	//     border-radius: 50%;
+	//     margin-right: rem(8);
+	//     color: $color-white;
+	//     content: '';
+	//     font-family: $font-roboto;
+	//     font-size: rem(10);
+	//     font-weight: 500;
+	//     line-height: rem(17);
+	// }
+
+	// &.level--diamond::before {
+	//     background-color: $color-blue-dark;
+	//     content: 'D';
+	// }
+
+	// &.level--platina::before {
+	//     background-color: $color-green;
+	//     content: 'P';
+	// }
+
+	// &.level--gold::before {
+	//     background-color: $color-orange;
+	//     content: 'G';
+	// }
+
+	// &.level--silver::before {
+	//     background-color: $color-blue-light;
+	//     content: 'S';
+	// }
+
+	// &.level--bronze::before {
+	//     background-color: $color-orange;
+	//     content: 'B';
+	// }
+
+	// &.level--iron::before {
+	//     background-color: $color-grey-dark;
+	//     content: 'I';
+	// }
+}
+
+.level + .level {
+	margin-top: rem(16);
+}

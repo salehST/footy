@@ -1,0 +1,41 @@
+@use 'utils/_functions.scss' as f;
+
+$color-red: #ef3939;
+$color-green: #14b966;
+$color-blue-darkest: #101d3c;
+$color-blue-dark: #193860;
+$color-blue-light: #6ba9d4;
+$color-orange: #e99648;
+$color-grey-dark: #6a6d6d;
+$color-grey-light: #ddd8d8;
+$color-turquoise: #029f8a;
+$color-turquoise-light: #9ce9cf;
+$color-black: #000;
+$color-white: #fff;
+
+$breakpoint: 800px;
+
+//
+// Fonts
+
+$font-open-sans:        'Open Sans', sans-serif;
+$font-roboto:           'Roboto', sans-serif;
+
+//
+// Dimensions
+
+$tab-height:            f.rem(74);
+$page-header-height:    f.rem(282);
+
+//
+// Spacing
+
+$page-spacing-x:        f.rem(16);
+$tab-spacing:           $tab-height + $page-spacing-x;
+
+//
+// Z-indices
+
+$z-dropdown:            100;
+$z-tabs:                100;
+$z-popover:             200;

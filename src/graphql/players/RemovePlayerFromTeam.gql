@@ -1,0 +1,7 @@
+mutation RemovePlayerFromTeam($player_id: uuid!, $team_id: uuid!) {
+	delete_join_players_teams(where: { player: { _eq: $player_id }, team: { _eq: $team_id } }) {
+		returning {
+			id
+		}
+	}
+}

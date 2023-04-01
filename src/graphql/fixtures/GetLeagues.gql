@@ -1,0 +1,76 @@
+query GetLeagueFixtures($leagueId: uuid!, $teamId: uuid, $currentDate: date!) {
+	matches(
+		where: {
+			_and: [
+				{ league: { _eq: $leagueId } }
+				{ _or: [{ date: { _gte: $currentDate } }, { date: { _is_null: true } }] }
+				{ home_score: { _is_null: true } }
+				{ away_score: { _is_null: true } }
+				{ leagueByLeague: { status: { _neq: "finished" } } }
+			]
+			_or: [{ home_team: { _eq: $teamId } }, { away_team: { _eq: $teamId } }]
+		}
+	) {
+		id
+		date
+		postponed
+		kick_off_time
+		number_of_halves
+		half_length
+		league: leagueByLeague {
+			id
+			display_name
+			league_teams(order_by: { placeholder_team: { name: asc } }) {
+				id
+				deleted_at
+				team_id
+				placeholder_team {
+					id
+					name
+				}
+			}
+			locationByLocation {
+				city {
+					country {
+						name
+					}
+				}
+			}
+		}
+		match_comments {
+			text
+			private
+		}
+		away_team: team {
+			id
+			name
+			logo_url
+		}
+		home_team: teamByHomeTeam {
+			id
+			name
+			logo_url
+		}
+		placeholder_home_team: placeholderTeamByPlaceholderHomeTeam {
+			id
+			name
+			type
+		}
+		placeholder_away_team: placeholder_team {
+			id
+			name
+			type
+		}
+		referee: refereeByReferee {
+			first_name
+			last_name
+		}
+		pitch: pitchByPitch {
+			name
+			pitch_name
+			location {
+				name
+			}
+		}
+	}
+}

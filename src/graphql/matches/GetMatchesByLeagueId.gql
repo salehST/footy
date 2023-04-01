@@ -1,0 +1,10 @@
+query GetMatchesByLeagueId($id: uuid!) {
+	leagues(where: { id: { _eq: $id } }) {
+		id
+		display_name
+		matches: matches {
+			id
+			date
+		}
+	}
+}

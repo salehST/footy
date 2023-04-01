@@ -1,0 +1,93 @@
+query GetMOMGroupData($leagueId: uuid!) {
+    join_man_of_the_matches_leagues (where: { league: { _eq: $leagueId } }) {
+        id
+        league
+        manOfTheMatchByManOfTheMatch {
+            id
+            name
+            join_league_manofthematch {
+                id
+                league
+                leagueByLeague {
+                    id
+                    league_type
+                    display_name
+                    season
+                    kick_off_date
+                    locationObj: locationByLocation {
+                        id
+                        name
+                        city {
+                            id
+                            name
+                            country {
+                                id
+                                name
+                            }
+                        }
+                    }
+                    parentLeagues: joinLeaguesMiniLeaguesByMiniLeague {
+                        league: leagueByLeague {
+                            id
+                            display_name
+                            matches {
+                                id
+                                name
+                                home_score
+                                away_score
+                                man_of_the_match: player {
+                                    id
+                                    first_name
+                                    last_name
+                                    team: join_players_teams {
+                                        id
+                                        team
+                                    }
+                                }
+                                finals_group: finalsGroupByFinalsGroup {
+                                    name
+                                }
+                                homeTeam: teamByHomeTeam {
+                                    id
+                                    name
+                                }
+                                awayTeam: team {
+                                    id
+                                    name
+                                }
+                                deleted_team
+                            }
+                        }
+                    }
+                    matches {
+                        id
+                        name
+                        home_score
+                        away_score
+                        man_of_the_match: player {
+                            id
+                            first_name
+                            last_name
+                            team: join_players_teams {
+                                id
+                                team
+                            }
+                        }
+                        finals_group: finalsGroupByFinalsGroup {
+                            name
+                        }
+                        homeTeam: teamByHomeTeam {
+                            id
+                            name
+                        }
+                        awayTeam: team {
+                            id
+                            name
+                        }
+                        deleted_team
+                    }
+                }
+            }
+        }
+    }
+}

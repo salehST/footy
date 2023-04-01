@@ -1,0 +1,205 @@
+query GetAttachedFinalAndMiniLeagues($leagueId: uuid!) {
+	attachedFinals: join_finals_leagues(where: { league: { _eq: $leagueId } }) {
+		created_at
+		final {
+			id
+			finals_groups(order_by: { name: asc }) {
+				id
+				name
+				parent_finals
+				qualification_positions
+				default_game_length
+				default_number_of_halves
+				default_half_length
+				default_time_slot
+				round_robin_format
+				default_pitches
+				number_of_teams
+				frequency
+				is_completed
+				teamsInGroup: placeholderTeamsByParentGroup {
+					id
+					name
+					type
+					seeding_league
+					seeding_position
+					seeding_group
+					parent_league
+					parent_group
+					parent_finals
+				}
+				matches {
+					away_score
+					away_team
+					created_at
+					date
+					game_length
+					home_score
+					home_team
+					pitch
+					name
+					id
+					kick_off_time
+					man_of_the_match
+					name
+					finals_group
+					finals_knockout
+					placeholder_away_team
+					placeholder_home_team
+					postponed
+					round
+					number_of_halves
+					half_length
+					referee
+					slot_time
+					deleted_at
+					deleted_team
+					refereeObj: refereeByReferee {
+						id
+						first_name
+						last_name
+					}
+					pitchObj: pitchByPitch {
+						id
+						name
+						pitch_name
+						location {
+							id
+							name
+							city_id
+						}
+					}
+					awayTeamObj: team {
+						id
+						name
+						type
+					}
+					homeTeamObj: teamByHomeTeam {
+						id
+						name
+						type
+					}
+					phHomeTeamObj: placeholderTeamByPlaceholderHomeTeam {
+						id
+						name
+						type
+						seeding_position
+						seeding_league
+						seeding_group
+						seeding_match
+					}
+					phAwayTeamObj: placeholder_team {
+						id
+						name
+						type
+						seeding_position
+						seeding_league
+						seeding_group
+						seeding_match
+					}
+				}
+			}
+			finals_knockouts {
+				id
+				number_of_teams
+				parent_finals
+				updated_at
+				default_slot_duration
+				default_game_length
+				default_number_of_halves
+				default_half_length
+				default_pitches
+				number_of_teams
+				frequency
+				created_at
+				matches {
+					away_score
+					away_team
+					created_at
+					date
+					game_length
+					home_score
+					home_team
+					pitch
+					name
+					id
+					kick_off_time
+					man_of_the_match
+					name
+					finals_group
+					finals_knockout
+					placeholder_away_team
+					placeholder_home_team
+					number_of_halves
+					half_length
+					postponed
+					referee
+					slot_time
+					pens_winner
+					refereeObj: refereeByReferee {
+						id
+						first_name
+						last_name
+					}
+					pitchObj: pitchByPitch {
+						id
+						name
+						pitch_name
+						location {
+							id
+							name
+							city_id
+						}
+					}
+					awayTeamObj: team {
+						id
+						name
+						type
+					}
+					homeTeamObj: teamByHomeTeam {
+						id
+						name
+						type
+					}
+					phHomeTeamObj: placeholderTeamByPlaceholderHomeTeam {
+						id
+						name
+						type
+						seeding_position
+						seeding_league
+						seeding_group
+						seeding_match
+					}
+					phAwayTeamObj: placeholder_team {
+						id
+						name
+						type
+						seeding_position
+						seeding_league
+						seeding_group
+						seeding_match
+					}
+				}
+			}
+			display_name
+			color
+			color_name
+			kick_off_date
+			join_finals_leagues(where: { league: { _eq: $leagueId } }) {
+				id
+				qualification_positions
+			}
+		}
+	}
+	attachedMiniLeagues: join_leagues_mini_leagues(where: { league: { _eq: $leagueId } }) {
+		qualification_positions
+		created_at
+		mini_league: leagueByMiniLeague {
+			id
+			display_name
+			kick_off_date
+			color
+			color_name
+		}
+	}
+}

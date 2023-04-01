@@ -1,0 +1,93 @@
+query GetStandingsData($leagueId: uuid!) {
+	points: join_league_teams(where: { league_id: { _eq: $leagueId } }) {
+		team {
+			name
+		}
+		played_carried
+		won_carried
+		lost_carried
+		drawn_carried
+		gs_carried
+		gd_carried
+		points_carried
+	}
+	matches(where: { league: { _eq: $leagueId } }) {
+		id
+		name
+		home_score
+		away_score
+		man_of_the_match: player {
+			id
+			first_name
+			last_name
+			team: join_players_teams {
+				id
+				team
+			}
+		}
+		finals_group: finalsGroupByFinalsGroup {
+			name
+		}
+		homeTeam: teamByHomeTeam {
+			id
+			name
+		}
+		awayTeam: team {
+			id
+			name
+		}
+		deleted_team
+	}
+	finals: finals(where: { id: { _eq: $leagueId } }) {
+		finals_knockouts {
+			matches {
+				id
+				name
+				home_score
+				away_score
+				man_of_the_match: player {
+					id
+					first_name
+					last_name
+				}
+				finals_group: finalsGroupByFinalsGroup {
+					name
+				}
+				homeTeam: teamByHomeTeam {
+					id
+					name
+				}
+				awayTeam: team {
+					id
+					name
+				}
+				deleted_team
+			}
+		}
+		finals_groups(where: { is_completed: { _neq: true } }) {
+			matches {
+				id
+				name
+				home_score
+				away_score
+				man_of_the_match: player {
+					id
+					first_name
+					last_name
+				}
+				finals_group: finalsGroupByFinalsGroup {
+					name
+				}
+				homeTeam: teamByHomeTeam {
+					id
+					name
+				}
+				awayTeam: team {
+					id
+					name
+				}
+				deleted_team
+			}
+		}
+	}
+}

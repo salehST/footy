@@ -1,0 +1,20 @@
+query GetOneLeague($leagueId: uuid!) {
+	leagues(where: { id: { _eq: $leagueId } }) {
+		id
+		published
+		display_name
+		league_type
+	}
+	finals(
+		where: {
+			_or: [
+				{ finals_groups: { final: { id: { _eq: $leagueId } } } }
+				{ finals_knockouts: { final: { id: { _eq: $leagueId } } } }
+			]
+		}
+	) {
+		id
+		display_name
+		published
+	}
+}

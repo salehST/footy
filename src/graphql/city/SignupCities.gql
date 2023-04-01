@@ -1,0 +1,11 @@
+query GetSignupCities {
+	cities {
+		id
+		name
+		country {
+			id
+			name
+			code
+		}
+	}
+}

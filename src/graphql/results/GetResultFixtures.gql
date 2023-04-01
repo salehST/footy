@@ -1,0 +1,49 @@
+query GetResultFixtures($leagueId: uuid!, $teamId: uuid!, $currentDate: date!) {
+	matches(
+		where: {
+			_and: [
+				{ league: { _eq: $leagueId } }
+				{ date: { _lte: $currentDate } }
+				{ placeholder_home_team: { _is_null: true } }
+				{ placeholder_away_team: { _is_null: true } }
+				{ home_score: { _is_null: false } }
+				{ away_score: { _is_null: false } }
+			]
+			_or: [{ home_team: { _eq: $teamId } }, { away_team: { _eq: $teamId } }]
+		}
+	) {
+		id
+		date
+		kick_off_time
+		away_score
+		home_score
+		number_of_halves
+		half_length
+		league: leagueByLeague {
+			id
+			display_name
+		}
+		match_comments {
+			text
+			private
+		}
+		away_team: team {
+			id
+			name
+			logo_url
+		}
+		home_team: teamByHomeTeam {
+			id
+			name
+			logo_url
+		}
+		referee: refereeByReferee {
+			first_name
+			last_name
+		}
+		man_of_the_match: player {
+			first_name
+			last_name
+		}
+	}
+}

@@ -1,0 +1,20 @@
+query getCountryTeams($searchTerm: String!, $countryId: uuid!) {
+	teams(where: { 
+		_and: [
+			{ name: { _ilike: $searchTerm } }
+			{ cityByCity: { country_id: {_eq: $countryId} } }
+		]
+	}) 
+	{
+		id
+		name
+		zendesk_id
+		city: cityByCity {
+			country {
+				id
+				name
+				code
+			}
+		}
+	}
+}

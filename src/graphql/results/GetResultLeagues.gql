@@ -1,0 +1,25 @@
+query GetResultLeagues($teamId: uuid!) {
+	leagues(
+		where: {
+			_and: [{ published: { _eq: true } }]
+			matches: {
+				_or: [{ home_team: { _eq: $teamId } }, { away_team: { _eq: $teamId } }]
+				_and: [{ home_score: { _is_null: false } }, { away_score: { _is_null: false } }]
+			}
+		}
+	) {
+		id
+		name: display_name
+		type: __typename
+		league_type
+		kick_off_date
+	}
+	finals(
+		where: { _and: { published: { _eq: true } }, join_team_finals: { team: { _eq: $teamId } } }
+	) {
+		id
+		name: display_name
+		type: __typename
+		kick_off_date
+	}
+}

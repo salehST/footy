@@ -1,0 +1,31 @@
+//
+// Component: Team Stats
+//
+
+.team-stats {
+    display: flex;
+    align-items: center;
+    font-family: $font-roboto;
+    font-size: rem(10);
+    line-height: (14/10);
+    text-align: center;
+}
+
+.team-stats__image {
+    display: block;
+    width: rem(100);
+    min-width: rem(100);
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+
+.team-stats__table {
+    flex: 1;
+    margin: rem(16);
+}
+
+.team-stats__table th,
+.team-stats__table td {
+    width: 25%;
+    padding: rem(8) 0;
+}

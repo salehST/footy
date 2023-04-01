@@ -1,0 +1,20 @@
+html {
+    font-family: $font-open-sans;
+    font-size: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    color: $color-blue-darkest;
+    font-family: $font-roboto;
+    font-weight: 900;
+}
+
+h3 {
+    margin-bottom: rem(8);
+    font-size: rem(14);
+    line-height: (16/14);
+}

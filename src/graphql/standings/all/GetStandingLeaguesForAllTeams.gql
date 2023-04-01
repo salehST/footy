@@ -1,0 +1,19 @@
+query GetStandingLeaguesForAllTeams($teamId: [uuid!]!) {
+	leagues(
+		where: { matches: { _or: [{ home_team: { _in: $teamId } }, { away_team: { _in: $teamId } }] } }
+	) {
+		id
+		name: display_name
+		type: __typename
+		league_type
+		status
+		kick_off_date
+	}
+	finals(where: { join_team_finals: { team: { _in: $teamId } } }) {
+		id
+		name: display_name
+		type: __typename
+		status
+		kick_off_date
+	}
+}

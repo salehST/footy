@@ -1,0 +1,17 @@
+query GetOtherLeagueTeams($leagueId: uuid!, $playerTeams: [uuid!]!) {
+	teams: join_league_teams(
+		where: {
+			_and: [
+				{ league_id: { _eq: $leagueId } }
+				{ team_id: { _is_null: false } }
+				{ team_id: { _nin: $playerTeams } }
+			]
+		}
+		distinct_on: team_id
+	) {
+		team {
+			id
+			name
+		}
+	}
+}

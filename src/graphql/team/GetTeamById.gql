@@ -1,0 +1,11 @@
+query GetTeamById($id: uuid!) {
+	teams(where: { id: { _eq: $id } }) {
+		id
+		name
+		logo_url
+		players_limit
+		players: join_players_teams {
+			id
+		}
+	}
+}

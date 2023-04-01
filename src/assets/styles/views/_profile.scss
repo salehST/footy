@@ -1,0 +1,108 @@
+// Photo
+
+.profile-details__photo {
+	display: block;
+	width: rem(64);
+	height: rem(64);
+	border-radius: 50%;
+}
+
+.profile-details__photo-btn {
+	padding: 0;
+	border: 0;
+	background-color: $color-white;
+	color: $color-orange;
+	font-family: $font-roboto;
+	font-size: rem(14);
+	line-height: (18/14);
+}
+
+// Details (idle)
+
+.profile-details.is-idle {
+	display: grid;
+	grid-template-columns: rem(64) 1fr;
+	grid-gap: rem(16) rem(24);
+
+	.profile-details__data {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: inherit;
+	}
+
+	.profile-details__data > :first-child {
+		grid-column: span 2;
+	}
+}
+
+.profile-details.is-editing {
+	.profile-details__photo,
+	.profile-details__photo-btn {
+		margin-bottom: rem(4);
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.profile-details__photo-btn {
+		display: block;
+	}
+
+	.profile-details__data {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: rem(16);
+	}
+
+	.profile-details__name {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: rem(16);
+	}
+
+	.profile-details__data > :first-child {
+		grid-column: span 2;
+	}
+}
+
+// Team
+
+.profile-team {
+	font-size: rem(20);
+	font-weight: 700;
+	line-height: (28/20);
+
+	& + & {
+		margin-top: rem(16);
+	}
+}
+
+.profile-team a {
+	display: flex;
+	align-items: center;
+}
+
+.profile-team img {
+	display: block;
+	width: rem(64);
+	min-width: rem(64);
+	margin-right: rem(16);
+}
+.leave_team {
+	background-color: $color-white;
+	border: 0;
+	color: $color-orange;
+	display: flex;
+	font-size: rem(12);
+	font-weight: 600;
+	line-height: (16/10);
+	padding: 0;
+	position: absolute;
+	right: rem(20);
+    margin-top: rem(20);
+}
+@media (max-width: 600px) {
+	.profile-team p {
+		inline-size: 144px;
+		overflow-wrap: break-word;
+	}
+}

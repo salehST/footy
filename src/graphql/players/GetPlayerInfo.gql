@@ -1,0 +1,31 @@
+query GetPlayerInfo($firebaseId: String!) {
+	players(where: { firebase_id: { _eq: $firebaseId } }) {
+		id
+		first_name
+		last_name
+		phone_number
+		gender
+		photo_url
+		email
+		language
+		ringer
+		photo_url
+		zendesk_id
+		firebase_id
+		city: cityByCity {
+			id
+			country {
+				id
+				name
+				code
+			}
+		}
+		join_players_teams {
+			team: teamByTeam {
+				id
+				name
+				badge: logo_url
+			}
+		}
+	}
+}

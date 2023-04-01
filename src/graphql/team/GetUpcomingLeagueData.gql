@@ -1,0 +1,29 @@
+query getUpcomingLeague($teamId: [uuid!]!, $query: date_comparison_exp!, $orderBy: order_by) {
+	matches(
+		where: {
+			date: $query
+			league: { _is_null: false }
+			_and: [
+				{ _or: [{ home_team: { _in: $teamId } }, { away_team: { _in: $teamId } }] }
+				{
+					_or: [
+						{ leagueByLeague: { published: { _eq: true } } }
+						{ finalsGroupByFinalsGroup: { final: { published: { _eq: true } } } }
+						{ finalsKnockoutByFinalsKnockout: { final: { published: { _eq: true } } } }
+					]
+				}
+			]
+		}
+		limit: 1
+		order_by: { date: $orderBy }
+	) {
+		home_team
+		away_team
+		league: leagueByLeague {
+			id
+			name: display_name
+			type: __typename
+			league_type
+		}
+	}
+}

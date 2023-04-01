@@ -1,0 +1,21 @@
+//
+// Component: Match group
+//
+
+.match-group + .match-group {
+    margin-top: rem(8);
+}
+
+.match-group__title {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(7) rem(16);
+    border-top-right-radius: rem(10);
+    border-top-left-radius: rem(10);
+    background-color: $color-blue-dark;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: (26/18);
+}

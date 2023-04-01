@@ -1,0 +1,77 @@
+//
+// Component: Accordion Block
+//
+
+.accordion-block {
+}
+
+.accordion-block__title {
+	margin-bottom: 0;
+	color: $color-white;
+	font-family: $font-roboto;
+	font-size: rem(14);
+	font-weight: 900;
+	line-height: (18/14);
+}
+
+.accordion-block__button {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: rem(14) rem(44) rem(14) rem(14);
+	border: 0;
+	border-radius: rem(8);
+	font: inherit;
+	text-align: center;
+
+	.accordion-block.is-open & {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+    }
+    
+    .accordion-block--blue & {
+	    background-color: $color-blue-dark;
+    }
+
+    .accordion-block--green & {
+	    background-color: $color-turquoise;
+    }
+
+    .accordion-block--orange & {
+	    background-color: $color-orange;
+    }
+
+}
+
+.accordion-block__icon {
+	position: absolute;
+	top: rem(13);
+	right: rem(12);
+	width: rem(20);
+	height: rem(20);
+	fill: currentColor;
+    transition: transform 0.3s ease-in-out 0s;
+    
+    .accordion-block.is-open & {
+        transform: rotate(180deg);
+    }
+
+}
+
+.accordion-block__panel {
+    overflow: hidden;
+    max-height: 0;
+	border-bottom-right-radius: rem(8);
+	border-bottom-left-radius: rem(8);
+    background-color: $color-white;
+    transition: max-height 0.3s ease-in-out 0s;
+
+    .accordion-block.is-open & {
+        max-height: var(--accordion-max-height);
+    }
+
+}
+
+.accordion-block__inner {
+    padding: rem(16);
+}

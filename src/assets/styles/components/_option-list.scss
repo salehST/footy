@@ -1,0 +1,47 @@
+//
+// Component: Option List
+//
+
+.option-list {
+    font-size: rem(20);
+    line-height: (28/20);
+}
+
+.option-list + .option-list {
+    margin-top: rem(30);
+}
+
+.option-list__title {
+    margin-bottom: rem(8);
+    color: $color-blue-dark;
+    font-family: $font-roboto;
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: (16/14);
+}
+
+.option-list__option + .option-list__option {
+    margin-top: rem(8);
+}
+
+.option-list input {
+    display: none;
+}
+
+.option-list label {
+    display: block;
+    padding: rem(8) rem(12);
+    border: 2px solid transparent;
+    border-radius: rem(10);
+    background-color: $color-white;
+    box-shadow: 0 rem(3) rem(6) 0 rgba(0,0,0,0.13);
+    font-size: inherit;
+    font-weight: 900;
+    line-height: inherit;
+}
+
+.option-list :checked + label,
+.option-list label:hover {
+    border-color: $color-orange;
+    cursor: pointer;
+}

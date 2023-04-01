@@ -1,0 +1,27 @@
+query GetParentLeagueData($leagueId: uuid!) {
+	join_leagues_mini_leagues(where: { mini_league: { _eq: $leagueId } }) {
+		id
+		league: leagueByLeague {
+			display_name
+			matches {
+				id
+				name
+				home_score
+				away_score
+				man_of_the_match: player {
+					id
+					first_name
+					last_name
+				}
+				homeTeam: teamByHomeTeam {
+					id
+					name
+				}
+				awayTeam: team {
+					id
+					name
+				}
+			}
+		}
+	}
+}

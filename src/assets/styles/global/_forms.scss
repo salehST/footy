@@ -1,0 +1,92 @@
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="text"],
+select {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: rem(48);
+    padding: 0 rem(20);
+    border: 2px solid $color-grey-light;
+    border-radius: rem(5);
+    background-color: $color-white;
+    box-shadow: none;
+
+    &[readonly] {
+        height: auto;
+        padding: 0;
+        border: 0;
+        font-weight: 900;
+        line-height: 1;
+    }
+
+    &:focus {
+        border-color: $color-grey-dark;
+        box-shadow: 0 0 rem(2) rem(1) $color-turquoise-light;
+        outline: none;
+    }
+
+}
+
+select {
+    background-color: $color-white;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9.027 5.574'%3E%3Cpath fill='%23000' d='M1.061 0l3.452 3.445L7.966 0l1.061 1.061-4.514 4.513L0 1.061z' /%3E%3C/svg%3E");
+	background-position: center right rem(12);
+    background-repeat: no-repeat;
+    background-size: rem(16);
+
+    &[readonly] {
+        background-image: none;
+    }
+
+}
+
+input[type="checkbox"] + label {
+    display: flex;
+    align-items: flex-start;
+    color: $color-black;
+    font-family: $font-open-sans;
+    font-size: rem(14);
+    line-height: (18/14);
+}
+
+input[type="checkbox"] + label::before {
+    display: block;
+    width: rem(16);
+    height: rem(16);
+    border: rem(2) solid $color-grey-light;
+    border-radius: rem(5);
+    margin-top: rem(1);
+    margin-right: rem(8);
+    background-color: $color-grey-light;
+    content: '';
+
+    .card--dark & {
+        border-color: $color-white;
+        background-color: $color-white;
+    }
+
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: $color-white;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAACqADAAQAAAABAAAACAAAAABicMmvAAAAsklEQVQYGX3MvQ7BYBjF8XPadMRstFgqRhYX4RL0JriCJqobK+prdBGkg4jFgsRtWLWPp20qkuId+r7p+eUP/Dtrt4rAOyaEP93SbzKOdyosicztdzj1GzQkBMXS0EWcQdvAZlzG3Ju8y4uhTTNWBAtkipKNikLNdvR1FxNdPnFQUNHtJE6/lQcMGOzp8CBYZ4R9ikRunygrJt+VX2MkZy2XBbgqsvNS8Z55JQQjtzhkf167oTYWnLaukwAAAABJRU5ErkJggg==');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: rem(10);
+
+    .card--dark & {
+        background-color: $color-white;
+    }
+
+}
+
+label {
+    @include text-label();
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+}

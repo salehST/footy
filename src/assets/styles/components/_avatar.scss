@@ -1,0 +1,17 @@
+//
+// Component: Avatar
+//
+
+.avatar {
+    display: block;
+    width: rem(64);
+    height: rem(64);
+    border-radius: 50%;
+}
+
+.auth-flow-layout .avatar {
+    margin: rem(-66) auto 0 auto;
+    box-sizing: content-box;
+    border: rem(22) solid $color-white;
+    background-color: $color-white;
+}

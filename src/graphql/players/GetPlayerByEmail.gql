@@ -1,0 +1,30 @@
+query getPlayerByEmail($email: String!) {
+	players(where: { email: { _eq: $email } }) {
+		city
+		email
+		firebase_id
+		first_name
+		gender
+		id
+		language
+		last_name
+		phone_number
+		ringer
+		status
+		whatsapp
+		zendesk_id
+		photo_url
+		join_players_teams {
+			teamObj: teamByTeam {
+				id
+				name
+				finals: join_team_finals {
+					id: finals
+				}
+				leagues: league_teams {
+					id: league_id
+				}
+			}
+		}
+	}
+}

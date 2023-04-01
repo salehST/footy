@@ -1,0 +1,8 @@
+query PlayersByTeam($teamId: uuid!) {
+	players(where: { join_players_teams: { team: { _eq: $teamId } } }) {
+		id
+		first_name
+		last_name
+		photo_url
+	}
+}

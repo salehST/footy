@@ -1,0 +1,17 @@
+query GetOtherFinalTeams($leagueId: uuid!, $playerTeams: [uuid!]!) {
+	teams: join_team_finals(
+		where: {
+			_and: [
+				{ finals: { _eq: $leagueId } }
+				{ team: { _is_null: false } }
+				{ team: { _nin: $playerTeams } }
+			]
+		},
+		distinct_on: team
+	) {
+		team: teamByTeam {
+			id
+			name
+		}
+	}
+}

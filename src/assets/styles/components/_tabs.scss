@@ -1,0 +1,33 @@
+//
+// Component: Tabs
+//
+
+.tabs {
+    display: flex;
+    font-family: $font-roboto;
+    font-size: rem(16);
+    font-weight: 400;
+    background-color: $color-white;
+    line-height: (24/16);
+}
+
+.tabs--wide {
+    width: calc(100% + #{rem(32)});
+    padding-right: rem(16);
+    padding-bottom: rem(16);
+    padding-left: rem(16);
+    margin-bottom: rem(32);
+    margin-left: rem(-16);
+}
+
+.tab {
+    flex: 1;
+    padding-top: rem(16);
+    padding-bottom: rem(16);
+    border-bottom: 2px solid $color-grey-light;
+
+    &.is-active {
+        border-bottom-color: $color-orange;
+    }
+
+}

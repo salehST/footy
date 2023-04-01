@@ -1,0 +1,58 @@
+query GetMatchesByLeagueId($id: uuid!) {
+	finals_groups(where: { parent_finals: { _eq: $id } }) {
+		id
+		matches: matches {
+			id
+			date
+			kick_off_time
+			deleted_at
+			phHomeTeamObj: placeholderTeamByPlaceholderHomeTeam {
+				id
+				name
+				type
+				seeding_position
+				seeding_league
+				seeding_group
+				seeding_match
+			}
+			phAwayTeamObj: placeholder_team {
+				id
+				name
+				type
+				seeding_position
+				seeding_league
+				seeding_group
+				seeding_match
+			}
+			slot_time
+		}
+	}
+	finals_knockouts(where: { parent_finals: { _eq: $id } }) {
+		id
+		matches: matches {
+			id
+			date
+			kick_off_time
+			deleted_at
+			phHomeTeamObj: placeholderTeamByPlaceholderHomeTeam {
+				id
+				name
+				type
+				seeding_position
+				seeding_league
+				seeding_group
+				seeding_match
+			}
+			phAwayTeamObj: placeholder_team {
+				id
+				name
+				type
+				seeding_position
+				seeding_league
+				seeding_group
+				seeding_match
+			}
+			slot_time
+		}
+	}
+}

@@ -1,0 +1,14 @@
+query GetTeamCountryCode($id: uuid!) {
+	teams(where: { id: { _eq: $id } }) {
+		id
+		name
+		zendesk_id
+		city: cityByCity {
+			country {
+				id
+				name
+				code
+			}
+		}
+	}
+}

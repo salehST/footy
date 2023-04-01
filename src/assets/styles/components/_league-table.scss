@@ -1,0 +1,135 @@
+//
+// Component: League Table
+//
+
+.league-table {
+	width: 100%;
+	border-collapse: collapse;
+	color: $color-black;
+	font-size: rem(10);
+	line-height: (24/10);
+	text-align: left;
+}
+
+.league-table__title {
+	background-color: $color-blue-dark;
+	color: $color-white;
+	font-size: rem(14);
+	line-height: (20/14);
+	text-align: center;
+
+	th {
+		border-top-right-radius: rem(10);
+		border-top-left-radius: rem(10);
+	}
+}
+
+.league-table__heading {
+	background-color: $color-white;
+
+	&:first-of-type {
+		th:first-child {
+			border-top-left-radius: rem(10);
+		}
+
+		th:last-child {
+			border-top-right-radius: rem(10);
+		}
+	}
+}
+
+.league-table tbody tr:last-child td:first-child {
+	border-bottom-left-radius: 0.375rem;
+}
+
+.league-table tbody tr:last-child td:last-child {
+	border-bottom-right-radius: 0.375rem;
+}
+.league-table--qualifications tbody tr:nth-child(-n + 9) td {
+	background-color: mix($color-white, $color-orange, 75%);
+}
+
+.league-table--qualifications tbody tr:nth-child(-n + 6) td {
+	background-color: mix($color-white, $color-green, 75%);
+}
+
+.league-table--qualifications tbody tr:nth-child(-n + 3) td {
+	background-color: mix($color-white, $color-blue-dark, 75%);
+}
+
+.league-table--qualifications tbody tr:nth-child(n + 10) td {
+	background-color: mix($color-white, $color-blue-light, 75%);
+}
+
+.league-table--qualifications tbody tr:last-child td:first-child {
+	border-bottom-left-radius: rem(10);
+}
+
+.league-table--qualifications tbody tr:last-child td:last-child {
+	border-bottom-right-radius: rem(10);
+}
+
+.league-table th,
+.league-table td {
+	padding: rem(8);
+}
+
+.league-table th:first-child,
+.league-table td:first-child {
+	padding-left: rem(16);
+}
+
+.league-table th:last-child,
+.league-table td:last-child {
+	padding-right: rem(16);
+}
+
+// Finals Colors
+.finals-bg-platinum {
+	background-color: #dddcdb;
+}
+
+.finals-bg-gold {
+	background-color: #c1a845;
+}
+
+.finals-bg-silver {
+	background-color: #bababa;
+}
+
+.finals-bg-bronze {
+	background-color: #bd7e3d;
+}
+
+.finals-bg-copper {
+	background-color: #c97f65;
+}
+
+.finals-bg-steel {
+	background-color: #414449;
+}
+
+// Other Colors
+.finals-bg-green {
+	background-color: #39e352;
+}
+
+.finals-bg-mint {
+	background-color: #39e399;
+}
+
+.finals-bg-blue {
+	background-color: #3998e396;
+}
+
+.finals-bg-purple {
+	background-color: #dd39e396;
+}
+
+.finals-bg-peach {
+	background-color: #ffa483;
+}
+
+.finals-bg-pink {
+	background-color: #ff7aa2;
+}

@@ -1,0 +1,7 @@
+mutation registerPlayerWithTeam($player: uuid!, $team: uuid!) {
+	insert_join_players_teams(objects: { player: $player, team: $team }) {
+		returning {
+			id
+		}
+	}
+}

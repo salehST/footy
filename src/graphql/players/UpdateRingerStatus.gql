@@ -1,0 +1,7 @@
+mutation updateRingerStatus($userId: uuid!, $status: Boolean) {
+	update_players(_set: { ringer: $status }, where: { id: { _eq: $userId } }) {
+		returning {
+			id
+		}
+	}
+}

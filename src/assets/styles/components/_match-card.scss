@@ -1,0 +1,113 @@
+//
+// Component: Match Card
+//
+
+.match-card {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: rem(16);
+	background-color: $color-white;
+
+	& + & {
+		border-top: 1px solid #e7eaef;
+	}
+}
+
+.match-card:last-child {
+	border-bottom-right-radius: rem(10);
+	border-bottom-left-radius: rem(10);
+}
+
+.match-card__team {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: rem(88);
+	text-align: center;
+}
+
+.match-card__team-logo {
+	display: block;
+	width: rem(64);
+}
+
+.match-card__team-name {
+	margin-top: rem(6);
+	font-family: $font-roboto;
+	font-size: rem(14);
+	font-weight: 500;
+	line-height: (22/16);
+	word-break: break-word;
+
+}
+
+.match-card__score,
+.match-card__time {
+	display: flex;
+	justify-content: center;
+}
+
+.match-card__time {
+	margin-bottom: rem(2);
+	font-family: $font-roboto;
+	font-size: rem(32);
+	font-weight: 500;
+	line-height: (40/32);
+}
+.match-card__half-length {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+	font-family: $font-roboto;
+	font-size: rem(16);
+	font-weight: 600;
+	line-height: (6/16);
+	svg {
+        display: block;
+        width: rem(24);
+        height: rem(24);
+        margin-right: rem(2);
+        margin-top: rem(3);
+		font-weight: 900;
+        fill: currentColor;
+    }
+}
+.match-card__halves {
+	font-style: italic;
+}
+
+.match-card__details {
+	flex: 1;
+	margin-right: rem(12);
+	margin-left: rem(12);
+	text-align: center;
+}
+
+.match-card__detail {
+	margin-top: rem(-6);
+	color: $color-grey-dark;
+	font-size: rem(14);
+	line-height: (22/16);
+}
+.match-card__name {
+	margin-top: rem(3);
+	color: $color-grey-dark;
+	font-size: rem(14);
+	line-height: (22/16);
+}
+
+//
+// Notifications
+
+.match-card__notifications {
+	width: 100%;
+	margin-top: rem(12);
+	font-size: rem(14);
+	line-height: (20/14);
+	text-align: center;
+}
+
+.match-card__notifications-title {
+	font-weight: 600;
+}

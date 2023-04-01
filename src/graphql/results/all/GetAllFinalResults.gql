@@ -1,0 +1,100 @@
+query GetAllResultFinals($finalId: uuid!, $currentDate: date!) {
+	finals(where: { _and: [{ id: { _eq: $finalId } }] }) {
+		group_stage
+		finals_groups {
+			matches(
+				where: {
+					_and: [
+						{ date: { _lte: $currentDate } }
+						{ home_score: { _is_null: false } }
+						{ away_score: { _is_null: false } }
+						{ deleted_at: { _is_null: true } }
+					]
+				}
+			) {
+				id
+				date
+				kick_off_time
+				postponed
+				home_score
+				away_score
+				number_of_halves
+				half_length
+				league: leagueByLeague {
+					id
+					display_name
+				}
+				match_comments {
+					text
+					private
+				}
+				away_team: team {
+					id
+					name
+					logo_url
+				}
+				home_team: teamByHomeTeam {
+					id
+					name
+					logo_url
+				}
+				referee: refereeByReferee {
+					first_name
+					last_name
+				}
+				man_of_the_match: player {
+					first_name
+					last_name
+				}
+			}
+		}
+		finals_knockouts {
+			matches(
+				where: {
+					_and: [
+						{ date: { _lte: $currentDate } }
+						{ home_score: { _is_null: false } }
+						{ away_score: { _is_null: false } }
+					]
+				}
+			) {
+				id
+				name
+				date
+				kick_off_time
+				postponed
+				home_score
+				away_score
+				number_of_halves
+				half_length
+				league: leagueByLeague {
+					id
+					display_name
+				}
+				match_comments {
+					text
+					private
+				}
+				away_team: team {
+					id
+					name
+					logo_url
+				}
+				home_team: teamByHomeTeam {
+					id
+					name
+					logo_url
+				}
+				referee: refereeByReferee {
+					first_name
+					last_name
+				}
+				man_of_the_match: player {
+					first_name
+					last_name
+				}
+				pens_winner
+			}
+		}
+	}
+}

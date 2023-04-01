@@ -1,0 +1,77 @@
+//
+// Component: Button
+//
+
+.button {
+	display: inline-block;
+	padding: rem(20);
+    border-radius: rem(5);
+    font-family: $font-roboto;
+    font-weight: 500;
+	line-height: 1;
+	text-align: center;
+}
+
+.button:disabled {
+	background-color: #d0d0d0;
+}
+
+.button--login {
+	background-color: #f8921d;
+	color: $color-white;
+	display: flex;
+	justify-content: center;
+}
+
+.button--primary {
+	background-color: #f8921d;
+	color: $color-white;
+}
+
+.button--small {
+	padding: rem(10) rem(16);
+}
+
+.button--secondary {
+	border: 1px solid #f8921d;
+	color: #f8921d;
+	padding: 0.55rem 1rem;
+}
+
+.button--cancel {
+	background-color: #d0d0d0;
+	color: $color-white;
+}
+
+.button--danger {
+	background-color: #f42d2d;
+	color: $color-white;
+}
+
+.button--link {
+	color: #f8921d;
+}
+
+.button--wide {
+	display: block;
+	width: 100%;
+}
+
+.button--auth {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: rem(14);
+	padding-bottom: rem(14);
+	border: 2px solid $color-grey-light;
+	color: $color-grey-dark;
+
+	svg {
+		display: block;
+		width: rem(24);
+		height: rem(24);
+		margin-right: rem(12);
+		fill: currentColor;
+	}
+
+}

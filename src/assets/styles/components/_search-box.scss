@@ -1,0 +1,20 @@
+//
+// Component: Search Box
+//
+
+.search-box__label {
+	display: block;
+	margin-bottom: rem(8);
+	font-family: $font-roboto;
+	font-size: rem(12);
+	line-height: (16/12);
+}
+
+.search-box__input {
+	display: block;
+	width: 100%;
+	height: rem(48);
+	border: 2px solid $color-grey-light;
+	border-radius: rem(5);
+	margin-bottom: rem(30);
+}

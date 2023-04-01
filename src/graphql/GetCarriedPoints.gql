@@ -1,0 +1,26 @@
+query getCarriedPoints($id: uuid!) {
+	points: join_league_teams(
+		where: {
+			league_id: { _eq: $id }
+			played_carried: { _is_null: false }
+			points_carried: { _is_null: false }
+			won_carried: { _is_null: false }
+			lost_carried: { _is_null: false }
+			drawn_carried: { _is_null: false }
+			gd_carried: { _is_null: false }
+			gs_carried: { _is_null: false }
+			team: { name: { _is_null: false } }
+		}
+	) {
+		name: team {
+			name
+		}
+		played_carried
+		points_carried
+		won_carried
+		lost_carried
+		drawn_carried
+		gd_carried
+		gs_carried
+	}
+}

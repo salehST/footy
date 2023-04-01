@@ -1,0 +1,5 @@
+mutation updatePlayerLanguage($userId: uuid!, $language: String!) {
+	update_players(_set: { language: $language }, where: { id: { _eq: $userId } }) {
+		affected_rows
+	}
+}

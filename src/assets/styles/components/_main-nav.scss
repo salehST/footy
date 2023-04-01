@@ -1,0 +1,41 @@
+//
+// Component: Main Nav
+//
+
+.main-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $z-tabs;
+    background-color: #19294e;
+    color: $color-white;
+    font-family: $font-roboto;
+    font-size: rem(10);
+    font-weight: 500;
+    line-height: (16/10);
+    text-align: center;
+}
+
+.main-nav__button {
+    flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: rem(12);
+    padding-bottom: rem(18);
+
+    svg {
+        display: block;
+        width: rem(24);
+        height: rem(24);
+        margin-bottom: rem(4);
+        fill: currentColor;
+    }
+
+}
+
+.main-nav__button.is-active,
+.main-nav__button.router-link-active {
+    color: $color-orange;
+}

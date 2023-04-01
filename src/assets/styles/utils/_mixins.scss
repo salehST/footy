@@ -1,0 +1,28 @@
+//
+// Text
+
+@mixin text-label() {
+	display: block;
+	margin-bottom: rem(8);
+    color: $color-grey-dark;
+    font-family: $font-roboto;
+	font-size: rem(12);
+	line-height: (16/12);
+}
+
+@mixin text-value() {
+    display: block;
+    font-family: $font-roboto;
+    font-size: rem(14);
+    font-weight: 900;
+	line-height: (18/14);
+}
+
+@mixin text-section-title() {
+    margin-bottom: 32px;
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1428571429;
+    text-transform: uppercase;
+}

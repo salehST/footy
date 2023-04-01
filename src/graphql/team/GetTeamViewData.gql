@@ -1,0 +1,110 @@
+query TeamView($teamId: uuid!) {
+	teams(where: { id: { _eq: $teamId } }) {
+		id
+		captain
+		created_at
+		vice_captain
+		logo_url
+		name
+		player_type
+		matchesByHomeTeam(order_by: { date: desc }, where: { is_bye: { _eq: false } }) {
+			away_score
+			away_team
+			date
+			finals_group
+			finals_knockout
+			home_score
+			home_team
+			id
+			is_friendly
+			kick_off_time
+			league
+			man_of_the_match
+			name
+			pitchByPitch {
+				id
+				name
+				pitch_name
+				location {
+					id
+					name
+				}
+			}
+			referee: refereeByReferee {
+				id
+				first_name
+				last_name
+			}
+		}
+		matchesByAwayTeam(order_by: { date: desc }, where: { is_bye: { _eq: false } }) {
+			away_score
+			away_team
+			date
+			finals_group
+			finals_knockout
+			home_score
+			home_team
+			id
+			is_friendly
+			kick_off_time
+			league
+			man_of_the_match
+			name
+			pitchByPitch {
+				id
+				name
+				pitch_name
+				location {
+					id
+					name
+				}
+			}
+			referee: refereeByReferee {
+				id
+				first_name
+				last_name
+			}
+		}
+		league_teams {
+			id
+			points_carried
+			gd_carried
+			gs_carried
+			played_carried
+			drawn_carried
+			lost_carried
+			won_carried
+			gd_carried
+			league {
+				id
+				status
+				display_name
+				kick_off_date
+				matches(
+					where: {
+						_and: [
+							{ home_team: { _is_null: false } }
+							{ away_team: { _is_null: false } }
+							{ home_score: { _is_null: false } }
+							{ away_score: { _is_null: false } }
+						]
+					}
+				) {
+					id
+					home_team
+					away_team
+					homeTeam: teamByHomeTeam {
+						id
+						name
+					}
+					awayTeam: team {
+						id
+						name
+					}
+					home_score
+					away_score
+				}
+			}
+		}
+	}
+}

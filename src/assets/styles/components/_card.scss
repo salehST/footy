@@ -1,0 +1,17 @@
+//
+// Component: Card
+//
+
+.card {
+	padding: rem(20);
+	border-radius: rem(10);
+	background-color: $color-white;
+}
+
+.card.card--not-padded {
+	padding: 0;
+}
+
+.card--dark {
+	background-color: $color-grey-light;
+}
