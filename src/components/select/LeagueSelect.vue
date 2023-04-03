@@ -2,7 +2,7 @@
 	<div>
 		<DropdownButton class="league-select" :buttonText="buttonText">
 			<template v-slot:default="{ close }">
-				<h1 class="mb-12 mt-1 text-2xl">{{ $t('standings.select_league') }} / finals</h1>
+				<h1 class="mb-12 mt-1 text-2xl label-h">{{ $t('standings.select_league') }} / finals</h1>
 				<OptionList
 					v-if="options.length"
 					:options="options"

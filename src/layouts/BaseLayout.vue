@@ -2,7 +2,7 @@
 	
 	<div class="base-layout relative">
 		<SideBar />
-		<div class="right-content w-full md:pl-smd">
+		<div class="right-content w-full lg:pl-smd">
 			<div class="page page--default" :style="style">				
 				<PageHeader
 					:pull="headerPull"

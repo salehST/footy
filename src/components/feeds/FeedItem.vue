@@ -6,11 +6,11 @@
 			:to="`/team/${feedItem.home_team.id}`"
 		>
 			<img class="match-card__team-logo" :src="feedItem.home_team.logo_url || badge" />
-			<span class="match-card__team-name">{{ feedItem.home_team.name }}</span>
+			<span class="match-card__team-name text-brand text-20 font-700">{{ feedItem.home_team.name }}</span>
 		</router-link>
 		<div v-else class="match-card__team">
 			<img class="match-card__team-logo" :src="badge" />
-			<span class="match-card__team-name">{{
+			<span class="match-card__team-name text-brand text-20 font-700">{{
 				feedItem.placeholder_home_team ? feedItem.placeholder_home_team.name : 'Unknown'
 			}}</span>
 		</div>
@@ -39,7 +39,7 @@
 				<p class="match-card__name" v-if="referee">Ref: {{ referee }}</p>
 			</template>
 			<template v-else>
-				<p v-if="!feedItem.postponed" class="match-card__time">
+				<p v-if="!feedItem.postponed" class="match-card__time mb-4">
 					<span v-if="country == 'US'"> {{ tConvert(kickOffTime) }}</span>
 					<span v-else> {{ kickOffTime }} </span>
 				</p>
@@ -47,12 +47,17 @@
 					<BaseSvgIcon icon="icon-clock" />
 					{{ feedItem.number_of_halves }} x {{ feedItem.half_length }}
 				</p>
-				<p class="match-card__detail" v-if="feedItem.pitch && feedItem.pitch.location">
+				<span class="flex items-center flex-col md:flex-row justify-center gap-3 mt-3">
+					<p class="match-card__detail flex items-center" v-if="feedItem.pitch && feedItem.pitch.location">
+					<img src="/img/icons/icon-pin.svg" class=" h-4 w-4" alt="icon">
 					{{ feedItem.pitch.location.name }}
 				</p>
-				<p class="match-card__name" v-if="feedItem.pitch">
+				<p class="match-card__name flex items-center mt-0" v-if="feedItem.pitch">
+					
+					<img src="/img/icons/icon-pitch.svg" class=" h-4 w-4" alt="icon">
 					Pitch {{ feedItem.pitch.pitch_name || feedItem.pitch.name }}
 				</p>
+				</span>
 			</template>
 		</div>
 		<router-link
@@ -61,11 +66,11 @@
 			:to="`/team/${feedItem.away_team.id}`"
 		>
 			<img class="match-card__team-logo" :src="feedItem.away_team.logo_url || badge" />
-			<span class="match-card__team-name">{{ feedItem.away_team.name }}</span>
+			<span class="match-card__team-name text-brand text-20 font-700">{{ feedItem.away_team.name }}</span>
 		</router-link>
 		<div v-else class="match-card__team">
 			<img class="match-card__team-logo" :src="badge" />
-			<span class="match-card__team-name">{{
+			<span class="match-card__team-name text-brand text-20 font-700">{{
 				feedItem.placeholder_away_team ? feedItem.placeholder_away_team.name : 'Unknown'
 			}}</span>
 		</div>

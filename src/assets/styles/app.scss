@@ -51,7 +51,7 @@
 // Helpers
 
 @import 'utils/helpers';
-.org-btn {
+.org-btn, .org-btn-2 {
     background: #E99648;
     color: #fff;
     padding: 10px 16px;
@@ -59,10 +59,16 @@
     font-weight: 700;
     transition: 300ms;
 }
+.org-btn-2{
+    background: #193860;
+}
+.org-btn-2:hover{
+    background: #0d2544;
+}
 .org-btn:hover{
     background: #f27e11;
 }
-.outline-btn {
+.outline-btn, .outline-btn-2 {
     color: #fff;
     font-weight: 700;
     padding: 8px 16px;
@@ -70,7 +76,92 @@
     border-radius: 5px;
     transition: 300ms;
 }
+.outline-btn-2{
+    border-color: #193860;
+    color: #193860;
+}
 .outline-btn:hover {
     background: #fff;
     color: #000;
+}
+.outline-btn-2:hover {
+    background: #193860;
+    color: #fff;
+}
+.sidebar .popover {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    left: 0;
+    right: auto;
+    z-index: 999;
+    padding: 8px;
+    border-radius: 0;    background: #183254;
+
+}
+.sidebar .popover__inner .popover__close, .sidebar .popover__inner h1.label-h,.sidebar .popover::before, .sidebar label.search-box__label {
+    display: none;
+}
+
+
+.sidebar input[type=search].search-box__input {
+    height: auto;
+    padding-left: 35px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: #000000;
+    position: relative;
+    margin-bottom: 15px;
+}
+.sidebar .dropdown__backdrop {
+    display: none!important;
+}
+
+.sidebar .dropdown__button {
+    font-size: 18px;
+    font-weight: 700;
+    background-size: 13px;
+}
+
+.sidebar .team-select__label {
+    display: none;
+}
+
+.sidebar .team-select {
+    width: 100%;
+}
+.sidebar .option-list :checked + label, .sidebar .option-list label:hover {
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    background: rgb(255 255 255 / 15%);
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 300ms;
+}
+.sidebar .option-list label {
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    background: transparent;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: 700;transition: 300ms;
+}
+.sidebar .option-list label:hover{
+    background: rgb(255 255 255 / 15%);
+}
+.sidebar .option-list__title {
+    font-size: 14px;
+    color: #fff;
+}
+.right-content .team-select, .right-content .league-select {
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .right-content .team-select, .right-content .league-select {
+        display: flex;
+    }
+
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen fixed left-0 top-0 max-w-smd w-full bg-darkGreen h-full shadow flex-col justify-between items-stretch hidden md:flex">
+  <div class="sidebar min-h-screen fixed left-0 top-0 max-w-smd w-full bg-darkGreen h-full shadow flex-col justify-between items-stretch hidden z-30 lg:flex">
     <div class=" flex flex-col flex-grow items-stretch">
                 <div class="logo mb-14  p-6">
                     <a href=""><img src="/img/footy_logo.svg" class=" w-28 h-auto" alt="logo">
@@ -19,90 +19,20 @@
                         </router-link>
 
                     </li>
-                    <li @click="toggleActive" class="dropdown-nav relative flex w-full justify-between text-white cursor-pointer items-center">
+                    <li class="dropdown-nav relative flex w-full justify-between text-white cursor-pointer items-center">
                         
-                        <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                            <div class="flex items-center">
-                                    <img src="/img/icons/LSD_Leagends.png" alt="">
-                                    <span class="text-18  font-bold ml-2">LSD Legends</span>
+                        <a href="javascript:void(0)" class="side-nav rotate flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
+                            <div class="flex items-center w-full">
+                                    <TeamSelect />
+                                    
                             </div>
-                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.3999 9.49961C6.58324 9.31628 6.81657 9.22461 7.0999 9.22461C7.38324 9.22461 7.61657 9.31628 7.7999 9.49961L11.6999 13.3996L15.5999 9.49961C15.7832 9.31628 16.0166 9.22461 16.2999 9.22461C16.5832 9.22461 16.8166 9.31628 16.9999 9.49961C17.1832 9.68294 17.2749 9.91628 17.2749 10.1996C17.2749 10.4829 17.1832 10.7163 16.9999 10.8996L12.3999 15.4996C12.2999 15.5996 12.1916 15.6706 12.0749 15.7126C11.9582 15.7539 11.8332 15.7746 11.6999 15.7746C11.5666 15.7746 11.4416 15.7539 11.3249 15.7126C11.2082 15.6706 11.0999 15.5996 10.9999 15.4996L6.3999 10.8996C6.21657 10.7163 6.1249 10.4829 6.1249 10.1996C6.1249 9.91628 6.21657 9.68294 6.3999 9.49961Z" fill="white"/>
-                        </svg>
+                            
 
                         </a>
                         
-                        <div v-bind:class="{ hidden: isActive }" class="dropdown">                              
-                            <div class="flex justify-center mt-auto w-full search-bar">
-                                <div class="relative">
-                                    <div class="icon-mag text-gray-300 absolute w-4 h-4">
-                                        <i class="mdi mdi-magnify"></i>
-                                    </div>
-                                    <input class="focus:outline-none focus:ring-1 focus:ring-gray-100 rounded w-full text-sm text-gray-300 placeholder-gray-400 bg-gray-100  pl-11  py-2" type="text" placeholder="Search Team" />
-                                </div>
-                            </div>
-                            <ul class="dropdown-nav-items">
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                                <img src="/img/icons/LSD_Leagends.png" alt="">
-                                                <span class="text-18  font-bold ml-2">Another Team</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                                <img src="/img/icons/the_bastards.png" alt="">
-                                                <span class="text-18  font-bold ml-2">The bastards</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                                <span class="text-14 font-500">Also in 2022 Summer Cup</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M8 7.7C9.06087 7.7 10.0783 8.12143 10.8284 8.87157C11.5786 9.62172 12 10.6391 12 11.7V16.5H4V11.7C4 10.6391 4.42143 9.62172 5.17157 8.87157C5.92172 8.12143 6.93913 7.7 8 7.7ZM2.6304 10.1048C2.50309 10.5342 2.42788 10.9774 2.4064 11.4248L2.4 11.7V16.5H7.30535e-08V12.9C-0.000157446 12.2101 0.254423 11.5443 0.714908 11.0306C1.17539 10.5168 1.80936 10.1911 2.4952 10.116L2.6304 10.1048ZM13.3696 10.1048C14.0815 10.1482 14.7501 10.4616 15.2389 10.981C15.7277 11.5004 15.9999 12.1868 16 12.9V16.5H13.6V11.7C13.6 11.1456 13.52 10.6104 13.3696 10.1048ZM2.8 5.3C3.33043 5.3 3.83914 5.51071 4.21421 5.88579C4.58929 6.26086 4.8 6.76957 4.8 7.3C4.8 7.83043 4.58929 8.33914 4.21421 8.71421C3.83914 9.08929 3.33043 9.3 2.8 9.3C2.26957 9.3 1.76086 9.08929 1.38579 8.71421C1.01071 8.33914 0.8 7.83043 0.8 7.3C0.8 6.76957 1.01071 6.26086 1.38579 5.88579C1.76086 5.51071 2.26957 5.3 2.8 5.3ZM13.2 5.3C13.7304 5.3 14.2391 5.51071 14.6142 5.88579C14.9893 6.26086 15.2 6.76957 15.2 7.3C15.2 7.83043 14.9893 8.33914 14.6142 8.71421C14.2391 9.08929 13.7304 9.3 13.2 9.3C12.6696 9.3 12.1609 9.08929 11.7858 8.71421C11.4107 8.33914 11.2 7.83043 11.2 7.3C11.2 6.76957 11.4107 6.26086 11.7858 5.88579C12.1609 5.51071 12.6696 5.3 13.2 5.3ZM8 0.5C8.84869 0.5 9.66263 0.837142 10.2627 1.43726C10.8629 2.03737 11.2 2.85131 11.2 3.7C11.2 4.54869 10.8629 5.36263 10.2627 5.96274C9.66263 6.56286 8.84869 6.9 8 6.9C7.15131 6.9 6.33737 6.56286 5.73726 5.96274C5.13714 5.36263 4.8 4.54869 4.8 3.7C4.8 2.85131 5.13714 2.03737 5.73726 1.43726C6.33737 0.837142 7.15131 0.5 8 0.5Z" fill="white"/>
-                                            </svg>
-
-                                                <span class="text-18  font-bold ml-2">See all teams</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                                <img src="/img/icons/vinnie_jones.png" alt="">
-                                                <span class="text-18  font-bold ml-2">Vinnie Jones</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                                <img src="/img/icons/fc_tba.png" alt="">
-                                                <span class="text-18  font-bold ml-2">FC TBA</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
-                    <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                        <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
+                    <li  class="dropdown-nav relative flex w-full justify-between text-white cursor-pointer items-center">
+                        <a  @click="dropdownActive" href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
                             <div class="flex items-center">
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_2122_15169)">
@@ -118,10 +48,50 @@
                                 <span class="text-18 font-bold ml-2">2022 Summer Cup</span>
                             </div>
                             
-                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24" height="25" viewBox="0 0 24 25"  v-bind:class="{ rotate_180 : isRotate2 }" class="rotate-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.3999 9.49961C6.58324 9.31628 6.81657 9.22461 7.0999 9.22461C7.38324 9.22461 7.61657 9.31628 7.7999 9.49961L11.6999 13.3996L15.5999 9.49961C15.7832 9.31628 16.0166 9.22461 16.2999 9.22461C16.5832 9.22461 16.8166 9.31628 16.9999 9.49961C17.1832 9.68294 17.2749 9.91628 17.2749 10.1996C17.2749 10.4829 17.1832 10.7163 16.9999 10.8996L12.3999 15.4996C12.2999 15.5996 12.1916 15.6706 12.0749 15.7126C11.9582 15.7539 11.8332 15.7746 11.6999 15.7746C11.5666 15.7746 11.4416 15.7539 11.3249 15.7126C11.2082 15.6706 11.0999 15.5996 10.9999 15.4996L6.3999 10.8996C6.21657 10.7163 6.1249 10.4829 6.1249 10.1996C6.1249 9.91628 6.21657 9.68294 6.3999 9.49961Z" fill="white"/>
                             </svg>
                         </a>
+                        <div  v-bind:class="{ hidden: isActive2 }" class="dropdown z-20"> 
+                            <ul class="dropdown-nav-items">
+                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
+                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
+                                        <div class="flex items-center">
+                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2122_15169)">
+                                <path d="M18.2222 6.77778H16.4444V5.88889C16.4444 5.4 16.0444 5 15.5556 5H8.44444C7.95556 5 7.55556 5.4 7.55556 5.88889V6.77778H5.77778C4.8 6.77778 4 7.57778 4 8.55556V9.44444C4 11.7111 5.70667 13.56 7.90222 13.8356C8.46222 15.1689 9.66222 16.1733 11.1111 16.4667V19.2222H8.44444C7.95556 19.2222 7.55556 19.6222 7.55556 20.1111C7.55556 20.6 7.95556 21 8.44444 21H15.5556C16.0444 21 16.4444 20.6 16.4444 20.1111C16.4444 19.6222 16.0444 19.2222 15.5556 19.2222H12.8889V16.4667C14.3378 16.1733 15.5378 15.1689 16.0978 13.8356C18.2933 13.56 20 11.7111 20 9.44444V8.55556C20 7.57778 19.2 6.77778 18.2222 6.77778ZM5.77778 9.44444V8.55556H7.55556V11.9511C6.52444 11.5778 5.77778 10.6 5.77778 9.44444ZM18.2222 9.44444C18.2222 10.6 17.4756 11.5778 16.4444 11.9511V8.55556H18.2222V9.44444Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_2122_15169">
+                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                                                <span class="text-18  font-bold ml-2">2022 Summer Cup</span>
+                                        </div>
+
+                                    </a>
+                                </li>
+                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
+                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
+                                        <div class="flex items-center">
+                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2122_15169)">
+                                <path d="M18.2222 6.77778H16.4444V5.88889C16.4444 5.4 16.0444 5 15.5556 5H8.44444C7.95556 5 7.55556 5.4 7.55556 5.88889V6.77778H5.77778C4.8 6.77778 4 7.57778 4 8.55556V9.44444C4 11.7111 5.70667 13.56 7.90222 13.8356C8.46222 15.1689 9.66222 16.1733 11.1111 16.4667V19.2222H8.44444C7.95556 19.2222 7.55556 19.6222 7.55556 20.1111C7.55556 20.6 7.95556 21 8.44444 21H15.5556C16.0444 21 16.4444 20.6 16.4444 20.1111C16.4444 19.6222 16.0444 19.2222 15.5556 19.2222H12.8889V16.4667C14.3378 16.1733 15.5378 15.1689 16.0978 13.8356C18.2933 13.56 20 11.7111 20 9.44444V8.55556C20 7.57778 19.2 6.77778 18.2222 6.77778ZM5.77778 9.44444V8.55556H7.55556V11.9511C6.52444 11.5778 5.77778 10.6 5.77778 9.44444ZM18.2222 9.44444C18.2222 10.6 17.4756 11.5778 16.4444 11.9511V8.55556H18.2222V9.44444Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_2122_15169">
+                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                                                <span class="text-18  font-bold ml-2">2023 Summer Cup</span>
+                                        </div>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="flex w-full justify-between text-white cursor-pointer items-center">
                         <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
@@ -169,25 +139,44 @@
   </div>
 </template>
 <script lang="ts">
+import TeamSelect from '@/components/select/TeamSelect.vue';
 import Vue from 'vue';
 
 // import BaseSvgIcon from '@/layouts/icons/BaseSvgIcon.vue';
 export default {
-  data() {
-    return {
-      isActive: true,
-    };
-  },
-  methods: {
-    toggleActive() {
-      this.isActive = !this.isActive;
+    data() {
+        return {
+            
+        };
     },
-  },
+    methods: {
+       
+    },
+    components: { TeamSelect }
 };
 </script>
 <style scoped>
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d; 
+}
 .side-nav.router-link-exact-active.router-link-active {
     background: rgb(255 255 255 / 15%);
+}
+.rotate_180{
+    transform: rotate(180deg);
 }
 .dropdown-nav .dropdown {
     position: absolute;

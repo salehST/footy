@@ -5,6 +5,7 @@
 		:pageTitle="$t('global.clubhouse')"
 		@go-to-clubhouse="isJoinTeam = !isJoinTeam"
 	>
+		
 		<template slot="content">
 			<template v-if="!playerTeamIds.length && user">
 				<div class="flex items-center justify-between">
@@ -60,12 +61,20 @@
 				</div>
 			</template>
 			<template v-else>
-				<template v-if="fixtures">
-					<div class="flex items-start justify-between">
-						<h2 class="text-section-title text-white">{{ $t('clubhouse.next_fixtures') }}</h2>
+				
+				<div class="flex items-start justify-between">
+						<h2 class="text-section-title text-white capitalize">Upcoming Booking</h2>
 						<div class="btn-area flex items-center">
 							<a href="" class="org-btn mr-4">Book a field</a>
 							<a href="" class="outline-btn">View all</a>
+						</div>
+					</div>
+				<UpcomingBooking class="mb-7" />
+				<template v-if="fixtures">
+					<div class="flex items-start justify-between">
+						<h2 class="text-section-title text-brand">{{ $t('clubhouse.next_fixtures') }}</h2>
+						<div class="btn-area flex items-center">
+							<a href="" class="outline-btn-2">View all</a>
 						</div>
 					</div>
 					<FeedGroup
@@ -77,8 +86,13 @@
 					</FeedGroup>
 				</template>
 				<template v-if="results">
-					<h2 class="text-section-title mt-32">{{ $t('clubhouse.recent_results') }}</h2>
-					<FeedGroup
+					<div class="flex items-start justify-between mt-32 ">
+						<h2 class="text-section-title">{{ $t('clubhouse.recent_results') }}</h2>
+						<div class="btn-area flex items-start">
+							<a href="" class="outline-btn-2">View all</a>
+						</div>
+					</div>
+					<FeedGroup class=" recent-results"
 						v-for="(group, index) in results"
 						:key="`latest-results-${index}`"
 						:firstItem="group[0]"
@@ -100,6 +114,7 @@ import FeedGroup from '@/components/feeds/FeedGroup.vue';
 import { groupMatchesByDate } from '@/helpers';
 import OptionList from '@/layouts/common/OptionList.vue';
 import SearchBox from '@/layouts/common/SearchBox.vue';
+import UpcomingBooking from '@/components/booking/UpcomingBooking.vue';
 
 export default Vue.extend({
 	data: () => ({
@@ -110,12 +125,13 @@ export default Vue.extend({
 		deletedTeams: [] as any,
 	}),
 	components: {
-		BaseLayout,
-		FeedItem,
-		FeedGroup,
-		OptionList,
-		SearchBox,
-	},
+    BaseLayout,
+    FeedItem,
+    FeedGroup,
+    OptionList,
+    SearchBox,
+    UpcomingBooking
+},
 	watch: {
 		searchTeam: {
 			async handler(newVal) {

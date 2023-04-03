@@ -1,6 +1,6 @@
 <template>
 	
-	<div class="main-nav flex md:hidden">
+	<div class="main-nav flex lg:hidden">
 		<router-link class="main-nav__button" to="/clubhouse">
 			<BaseSvgIcon icon="icon-clubhouse" />
 			<span>{{ $t('global.clubhouse') }}</span>

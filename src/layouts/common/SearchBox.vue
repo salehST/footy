@@ -7,6 +7,7 @@
 			:value="value"
 			v-on:input="inputHandler($event.target.value)"
 			v-on:focus="$emit('focus')"
+			placeholder="Search Team"
 		/>
 	</div>
 </template>

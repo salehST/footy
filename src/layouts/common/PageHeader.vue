@@ -2,8 +2,8 @@
 	<header :class="cssClasses" :style="style">
 		<div class="page-header__top">
 			<TopNav />
-			<img class="page-header__logo block md:hidden" :src="footyLogo" alt="Footy" />
-			<h1 class="page-header__title flex md:hidden">{{ title }}</h1>
+			<img class="page-header__logo block lg:hidden" :src="footyLogo" alt="Footy" />
+			<h1 class="page-header__title flex lg:hidden">{{ title }}</h1>
 			<div
 				v-if="previousRoute && previousRoute.name && !backBtnDisable"
 				@click="goToPreviousRoute"
