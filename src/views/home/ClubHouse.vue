@@ -62,8 +62,8 @@
 			</template>
 			<template v-else>
 				
-				<div class="flex items-start justify-between">
-						<h2 class="text-section-title text-white capitalize">Upcoming Booking</h2>
+				<div class="flex mb-32 items-start flex-col sm:flex-row justify-start sm:justify-between">
+						<h2 class="uppercase font-bold text-28 text-white">Upcoming Booking</h2>
 						<div class="btn-area flex items-center">
 							<a href="" class="org-btn mr-4">Book a field</a>
 							<a href="" class="outline-btn">View all</a>
@@ -73,7 +73,7 @@
 				<template v-if="fixtures">
 					<div class="flex items-start justify-between">
 						<h2 class="text-section-title text-brand">{{ $t('clubhouse.next_fixtures') }}</h2>
-						<div class="btn-area flex items-center">
+						<div class="btn-area flex items-center min-w-max">
 							<a href="" class="outline-btn-2">View all</a>
 						</div>
 					</div>
@@ -88,7 +88,7 @@
 				<template v-if="results">
 					<div class="flex items-start justify-between mt-32 ">
 						<h2 class="text-section-title">{{ $t('clubhouse.recent_results') }}</h2>
-						<div class="btn-area flex items-start">
+						<div class="btn-area flex items-start min-w-max">
 							<a href="" class="outline-btn-2">View all</a>
 						</div>
 					</div>

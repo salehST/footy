@@ -95,8 +95,9 @@
     left: 0;
     right: auto;
     z-index: 999;
-    padding: 8px;
+    padding: 8px 0;
     border-radius: 0;    background: #183254;
+    top: 33px;
 
 }
 .sidebar .popover__inner .popover__close, .sidebar .popover__inner h1.label-h,.sidebar .popover::before, .sidebar label.search-box__label {
@@ -121,8 +122,19 @@
     font-size: 18px;
     font-weight: 700;
     background-size: 13px;
+    padding: 0 25px;
+    text-align: left;
+    background-position: 90% 50%;
+    border: none;
 }
-
+input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, input[type=text]:focus, select:focus{
+    border-color: transparent;
+    box-shadow: none;
+    outline: none;
+}
+.sidebar .league-select .dropdown__button:focus, .sidebar .league-select .dropdown__button:hover {
+    box-shadow: none;
+}
 .sidebar .team-select__label {
     display: none;
 }
@@ -140,6 +152,9 @@
     font-weight: 700;
     transition: 300ms;
 }
+.sidebar .option-list__option {
+    margin-top: 0;
+}
 .sidebar .option-list label {
     border: none;
     box-shadow: none;
@@ -148,6 +163,7 @@
     border-radius: 0;
     font-size: 18px;
     font-weight: 700;transition: 300ms;
+    padding-left: 25px;
 }
 .sidebar .option-list label:hover{
     background: rgb(255 255 255 / 15%);
@@ -155,9 +171,16 @@
 .sidebar .option-list__title {
     font-size: 14px;
     color: #fff;
+    padding-left: 25px;
+}
+.sidebar .search-box {
+    padding: 0 25px;
 }
 .right-content .team-select, .right-content .league-select {
     display: none;
+}
+body{
+    overflow: visible!important;
 }
 @media only screen and (max-width: 1023px) {
     .right-content .team-select, .right-content .league-select {

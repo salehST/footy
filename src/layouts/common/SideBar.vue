@@ -21,7 +21,7 @@
                     </li>
                     <li class="dropdown-nav relative flex w-full justify-between text-white cursor-pointer items-center">
                         
-                        <a href="javascript:void(0)" class="side-nav rotate flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
+                        <a href="javascript:void(0)" class="side-nav rotate flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 transition focus:outline-none">
                             <div class="flex items-center w-full">
                                     <TeamSelect />
                                     
@@ -31,67 +31,12 @@
                         </a>
                         
                     </li>
-                    <li  class="dropdown-nav relative flex w-full justify-between text-white cursor-pointer items-center">
-                        <a  @click="dropdownActive" href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                            <div class="flex items-center">
-                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2122_15169)">
-                                <path d="M18.2222 6.77778H16.4444V5.88889C16.4444 5.4 16.0444 5 15.5556 5H8.44444C7.95556 5 7.55556 5.4 7.55556 5.88889V6.77778H5.77778C4.8 6.77778 4 7.57778 4 8.55556V9.44444C4 11.7111 5.70667 13.56 7.90222 13.8356C8.46222 15.1689 9.66222 16.1733 11.1111 16.4667V19.2222H8.44444C7.95556 19.2222 7.55556 19.6222 7.55556 20.1111C7.55556 20.6 7.95556 21 8.44444 21H15.5556C16.0444 21 16.4444 20.6 16.4444 20.1111C16.4444 19.6222 16.0444 19.2222 15.5556 19.2222H12.8889V16.4667C14.3378 16.1733 15.5378 15.1689 16.0978 13.8356C18.2933 13.56 20 11.7111 20 9.44444V8.55556C20 7.57778 19.2 6.77778 18.2222 6.77778ZM5.77778 9.44444V8.55556H7.55556V11.9511C6.52444 11.5778 5.77778 10.6 5.77778 9.44444ZM18.2222 9.44444C18.2222 10.6 17.4756 11.5778 16.4444 11.9511V8.55556H18.2222V9.44444Z" fill="white"/>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_2122_15169">
-                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                                </clipPath>
-                                </defs>
-                                </svg>
-
-                                <span class="text-18 font-bold ml-2">2022 Summer Cup</span>
+                    <li class="dropdown-nav relative flex w-full justify-between text-white cursor-pointer items-center">
+                        <a href="javascript:void(0)" class="side-nav rotate flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 transition focus:outline-none">
+                            <div class="block items-center w-full">
+                                <LeagueSelect />
                             </div>
-                            
-                            <svg width="24" height="25" viewBox="0 0 24 25"  v-bind:class="{ rotate_180 : isRotate2 }" class="rotate-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.3999 9.49961C6.58324 9.31628 6.81657 9.22461 7.0999 9.22461C7.38324 9.22461 7.61657 9.31628 7.7999 9.49961L11.6999 13.3996L15.5999 9.49961C15.7832 9.31628 16.0166 9.22461 16.2999 9.22461C16.5832 9.22461 16.8166 9.31628 16.9999 9.49961C17.1832 9.68294 17.2749 9.91628 17.2749 10.1996C17.2749 10.4829 17.1832 10.7163 16.9999 10.8996L12.3999 15.4996C12.2999 15.5996 12.1916 15.6706 12.0749 15.7126C11.9582 15.7539 11.8332 15.7746 11.6999 15.7746C11.5666 15.7746 11.4416 15.7539 11.3249 15.7126C11.2082 15.6706 11.0999 15.5996 10.9999 15.4996L6.3999 10.8996C6.21657 10.7163 6.1249 10.4829 6.1249 10.1996C6.1249 9.91628 6.21657 9.68294 6.3999 9.49961Z" fill="white"/>
-                            </svg>
-                        </a>
-                        <div  v-bind:class="{ hidden: isActive2 }" class="dropdown z-20"> 
-                            <ul class="dropdown-nav-items">
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2122_15169)">
-                                <path d="M18.2222 6.77778H16.4444V5.88889C16.4444 5.4 16.0444 5 15.5556 5H8.44444C7.95556 5 7.55556 5.4 7.55556 5.88889V6.77778H5.77778C4.8 6.77778 4 7.57778 4 8.55556V9.44444C4 11.7111 5.70667 13.56 7.90222 13.8356C8.46222 15.1689 9.66222 16.1733 11.1111 16.4667V19.2222H8.44444C7.95556 19.2222 7.55556 19.6222 7.55556 20.1111C7.55556 20.6 7.95556 21 8.44444 21H15.5556C16.0444 21 16.4444 20.6 16.4444 20.1111C16.4444 19.6222 16.0444 19.2222 15.5556 19.2222H12.8889V16.4667C14.3378 16.1733 15.5378 15.1689 16.0978 13.8356C18.2933 13.56 20 11.7111 20 9.44444V8.55556C20 7.57778 19.2 6.77778 18.2222 6.77778ZM5.77778 9.44444V8.55556H7.55556V11.9511C6.52444 11.5778 5.77778 10.6 5.77778 9.44444ZM18.2222 9.44444C18.2222 10.6 17.4756 11.5778 16.4444 11.9511V8.55556H18.2222V9.44444Z" fill="white"/>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_2122_15169">
-                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                                </clipPath>
-                                </defs>
-                                </svg>
-                                                <span class="text-18  font-bold ml-2">2022 Summer Cup</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="flex w-full justify-between text-white cursor-pointer items-center">
-                                    <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
-                                        <div class="flex items-center">
-                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2122_15169)">
-                                <path d="M18.2222 6.77778H16.4444V5.88889C16.4444 5.4 16.0444 5 15.5556 5H8.44444C7.95556 5 7.55556 5.4 7.55556 5.88889V6.77778H5.77778C4.8 6.77778 4 7.57778 4 8.55556V9.44444C4 11.7111 5.70667 13.56 7.90222 13.8356C8.46222 15.1689 9.66222 16.1733 11.1111 16.4667V19.2222H8.44444C7.95556 19.2222 7.55556 19.6222 7.55556 20.1111C7.55556 20.6 7.95556 21 8.44444 21H15.5556C16.0444 21 16.4444 20.6 16.4444 20.1111C16.4444 19.6222 16.0444 19.2222 15.5556 19.2222H12.8889V16.4667C14.3378 16.1733 15.5378 15.1689 16.0978 13.8356C18.2933 13.56 20 11.7111 20 9.44444V8.55556C20 7.57778 19.2 6.77778 18.2222 6.77778ZM5.77778 9.44444V8.55556H7.55556V11.9511C6.52444 11.5778 5.77778 10.6 5.77778 9.44444ZM18.2222 9.44444C18.2222 10.6 17.4756 11.5778 16.4444 11.9511V8.55556H18.2222V9.44444Z" fill="white"/>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_2122_15169">
-                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                                </clipPath>
-                                </defs>
-                                </svg>
-                                                <span class="text-18  font-bold ml-2">2023 Summer Cup</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        </a>    
                     </li>
                     <li class="flex w-full justify-between text-white cursor-pointer items-center">
                         <a href="javascript:void(0)" class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none">
@@ -134,11 +79,23 @@
                             </div>
                         </a>
                     </li>
+                    <li class="flex w-full justify-between text-white cursor-pointer items-center">
+                        <a class="side-nav flex items-center bg-opacity-0 bg-white hover:bg-opacity-10 w-full justify-between py-3 px-6 transition focus:outline-none" v-on:click="signOut">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.25 19a.75.75 0 0 1 .75-.75h6a.25.25 0 0 0 .25-.25V6a.25.25 0 0 0-.25-.25h-6a.75.75 0 0 1 0-1.5h6c.966 0 1.75.784 1.75 1.75v12A1.75 1.75 0 0 1 18 19.75h-6a.75.75 0 0 1-.75-.75Z"/><path fill="currentColor" d="M15.612 13.115a1 1 0 0 1-1 1H9.756c-.023.356-.052.71-.086 1.066l-.03.305a.718.718 0 0 1-1.025.578a16.844 16.844 0 0 1-4.885-3.539l-.03-.031a.721.721 0 0 1 0-.998l.03-.031a16.843 16.843 0 0 1 4.885-3.539a.718.718 0 0 1 1.025.578l.03.305c.034.355.063.71.086 1.066h4.856a1 1 0 0 1 1 1v2.24Z"/></svg>
+
+
+
+                                <span class="text-18  font-bold ml-2">{{ $t('menu.log_out') }}</span>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </div>
   </div>
 </template>
 <script lang="ts">
+import LeagueSelect from '@/components/select/LeagueSelect.vue';
 import TeamSelect from '@/components/select/TeamSelect.vue';
 import Vue from 'vue';
 
@@ -149,10 +106,18 @@ export default {
             
         };
     },
-    methods: {
-       
-    },
-    components: { TeamSelect }
+	methods: {
+		async signOut() {
+			await (this as any).$store.dispatch('signOut');
+			this.$store.commit('resetMatchState');
+			this.$store.commit('resetPlayerState');
+			this.$store.commit('resetResultState');
+			this.$store.commit('resetFixturesState');
+			this.$store.commit('resetStandingState');
+			this.$router.push({ name: 'welcome' });
+		},
+	},
+    components: { TeamSelect, LeagueSelect }
 };
 </script>
 <style scoped>
