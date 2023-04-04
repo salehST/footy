@@ -100,7 +100,7 @@ import TeamSelect from '@/components/select/TeamSelect.vue';
 import Vue from 'vue';
 
 // import BaseSvgIcon from '@/layouts/icons/BaseSvgIcon.vue';
-export default {
+export default Vue.extend({
     data() {
         return {
             
@@ -118,7 +118,7 @@ export default {
 		},
 	},
     components: { TeamSelect, LeagueSelect }
-};
+});
 </script>
 <style scoped>
 /* Scrollbar Styling */
