@@ -47,6 +47,11 @@ export default Vue.extend({
 				const teamId = newVal.id;
 				const route = this.$route.name;
 				switch (route) {
+					case 'clubhouse':
+						const fixtureLeagueDatas = await this.$store.dispatch('getFixtureLeagues', teamId);
+						const fixture = (this as any).leagueFilter(fixtureLeagueDatas);
+						this.options = fixture && fixture.length ? fixture : [];
+						break;
 					case 'fixtures':
 						const fixtureLeagueData = await this.$store.dispatch('getFixtureLeagues', teamId);
 						const fixtures = (this as any).leagueFilter(fixtureLeagueData);
@@ -82,6 +87,8 @@ export default Vue.extend({
 		selectedTeam() {
 			const route = this.$route.name;
 			switch (route) {
+				case 'clubhouse':
+					return this.getSelectedFixtureTeam;
 				case 'fixtures':
 					return this.getSelectedFixtureTeam;
 				case 'results':
@@ -96,6 +103,8 @@ export default Vue.extend({
 			get(): any {
 				const route = this.$route.name;
 				switch (route) {
+					case 'clubhouse':
+						return this.getSelectedFixtureLeague;
 					case 'fixtures':
 						return this.getSelectedFixtureLeague;
 					case 'results':
@@ -110,6 +119,14 @@ export default Vue.extend({
 			set(value: any): any {
 				const route = this.$route.name;
 				switch (route) {
+					case 'clubhouse':
+						value &&
+							value.type &&
+							this.$store.commit(
+								'setIsFinalsSelected',
+								value && value.type && value.type === 'leagues' ? false : true
+							);
+						return this.$store.commit('setFixtureLeague', value);
 					case 'fixtures':
 						value &&
 							value.type &&

@@ -123,6 +123,7 @@ export default Vue.extend({
 		filteredTeams: [],
 		isJoinTeam: false,
 		deletedTeams: [] as any,
+		
 	}),
 	components: {
     BaseLayout,

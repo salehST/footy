@@ -4,6 +4,7 @@
 		<template v-if="options">
 			<slot></slot>
 			<div class="option-list__option" v-for="option in options" :key="'option-' + option.id">
+				
 				<input
 					type="radio"
 					:id="`option-list-${_uid}-${option.id}`"
@@ -12,6 +13,7 @@
 					:checked="value && value.id && value.id === option.id"
 					v-on:change="$emit('input', option)"
 				/>
+				<!-- <img class="match-card__team-logo" :src="feedItem.home_team.logo_url || badge" /> -->
 				<label :for="`option-list-${_uid}-${option.id}`">{{ option.name }}</label>
 			</div>
 		</template>
