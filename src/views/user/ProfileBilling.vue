@@ -1,7 +1,7 @@
 <template>
-	<BaseLayout>
+	<BaseLayout  :pageTitle="$t('global.profile-billing')">
 		<template slot="content">
-            <!-- <div class="tabs">
+            <div class="tabs">
                 <ul>
                     <li v-for="(tab, index) in tabs" :key="index" :class="{ active: activeTab === index }" @click="activeTab = index">{{ tab.title }}</li>
                 </ul>
@@ -10,8 +10,7 @@
                         {{ tab.content }}
                     </div>
                 </div>
-            </div> -->
-            <h1>Helloooooo</h1>
+            </div>
 		</template>
 	</BaseLayout>
 </template>
@@ -47,26 +46,26 @@ import BaseLayout from '@/layouts/BaseLayout.vue';
 import Vue from 'vue';
 
 export default Vue.extend({	
-    // name: 'ProfileBilling',
+    name: 'ProfileBilling',
 	components: {
 		BaseLayout,
 	},  
     data: {
-    // activeTab: 0,
-    // tabs: [
-    //   {
-    //     title: 'Tab 1',
-    //     content: 'This is the content for Tab 1.'
-    //   },
-    //   {
-    //     title: 'Tab 2',
-    //     content: 'This is the content for Tab 2.'
-    //   },
-    //   {
-    //     title: 'Tab 3',
-    //     content: 'This is the content for Tab 3.'
-    //   }
-    // ]
+    activeTab: 0,
+    tabs: [
+      {
+        title: 'Tab 1',
+        content: 'This is the content for Tab 1.'
+      },
+      {
+        title: 'Tab 2',
+        content: 'This is the content for Tab 2.'
+      },
+      {
+        title: 'Tab 3',
+        content: 'This is the content for Tab 3.'
+      }
+    ]
   }
 });
 </script>
