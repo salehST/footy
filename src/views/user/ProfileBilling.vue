@@ -1,16 +1,7 @@
 <template>
-	<BaseLayout :headerPull="'lg'" :pageTitle="$t('global.profile-billing')">
+	<BaseLayout>
 		<template slot="content">
-			<nav class="menu">
-				<div class="menu__group">
-					<h2 class="menu__title text-white">{{ $t('menu.profile') }}</h2>
-					<router-link class="menu__link" to="/profile">{{ $t('menu.profile') }}</router-link>
-					<router-link class="menu__link" to="/find-fixtures">{{
-						$t('menu.find_fixtures')
-					}}</router-link>
-				</div>
-			</nav>
-            <div class="tabs">
+            <!-- <div class="tabs">
                 <ul>
                     <li v-for="(tab, index) in tabs" :key="index" :class="{ active: activeTab === index }" @click="activeTab = index">{{ tab.title }}</li>
                 </ul>
@@ -19,38 +10,63 @@
                         {{ tab.content }}
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+            <h1>Helloooooo</h1>
 		</template>
 	</BaseLayout>
 </template>
+<style scoped>
+.tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 
+.tabs ul li {
+  margin-right: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.tabs ul li.active {
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+}
+
+.tab-content {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+</style>
 <script lang="ts">
+import BaseLayout from '@/layouts/BaseLayout.vue';
 import Vue from 'vue';
 
-import BaseLayout from '@/layouts/BaseLayout.vue';
-
-export default Vue.extend({
-	name: 'profile-billing',
+export default Vue.extend({	
+    // name: 'ProfileBilling',
 	components: {
 		BaseLayout,
 	},  
     data: {
-    activeTab: 0,
-    tabs: [
-      {
-        title: 'Tab 1',
-        content: 'This is the content for Tab 1.'
-      },
-      {
-        title: 'Tab 2',
-        content: 'This is the content for Tab 2.'
-      },
-      {
-        title: 'Tab 3',
-        content: 'This is the content for Tab 3.'
-      }
-    ]
+    // activeTab: 0,
+    // tabs: [
+    //   {
+    //     title: 'Tab 1',
+    //     content: 'This is the content for Tab 1.'
+    //   },
+    //   {
+    //     title: 'Tab 2',
+    //     content: 'This is the content for Tab 2.'
+    //   },
+    //   {
+    //     title: 'Tab 3',
+    //     content: 'This is the content for Tab 3.'
+    //   }
+    // ]
   }
 });
 </script>

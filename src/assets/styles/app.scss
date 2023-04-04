@@ -164,6 +164,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, i
     font-size: 18px;
     font-weight: 700;transition: 300ms;
     padding-left: 25px;
+    display: flex;
 }
 .sidebar .option-list label:hover{
     background: rgb(255 255 255 / 15%);
@@ -179,6 +180,60 @@ input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, i
 .right-content .team-select, .right-content .league-select {
     display: none;
 }
+
+.sidebar .league-select .option-list__option label, .sidebar .league-select.dropdown .dropdown__button {
+    position: relative;
+}
+.sidebar .league-select.dropdown .dropdown__button {
+    padding-left: 60px;
+}
+.sidebar .league-select .option-list__option label img {
+    display: none;
+}
+.sidebar .league-select .option-list__option label {
+    padding-left: 30px;
+}
+.sidebar .league-select .option-list__option label .logo-badge:after, .sidebar .league-select.dropdown .dropdown__button:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 30px;
+    top: 12px;
+    background: url('/img/icons/icon-trophy.svg');
+    background-position: center;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.sidebar .team-select .dropdown .dropdown__button{
+    position: relative;
+    padding-left: 60px;
+}
+.sidebar .team-select .dropdown .dropdown__button:after{
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 28px;
+    top: 0;
+    background: url('https://s3.eu-central-1.amazonaws.com/footy-team-logo-bucket/749b11c1-976a-4902-8878-15eb588ce0ea.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sidebar .league-select.dropdown .dropdown__button:after {
+    top: 8px;
+    left: 28px;
+}
+.sidebar .team-select .popover {
+    z-index: 9999;
+    height: 550px;
+}
 body{
     overflow: visible!important;
 }
@@ -186,5 +241,7 @@ body{
     .right-content .team-select, .right-content .league-select {
         display: block;
     }
-
+    .option-list__option .logo-badge {
+        display: none;
+    }
 }

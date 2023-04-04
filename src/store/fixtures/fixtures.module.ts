@@ -12,6 +12,7 @@ import getCurrentDate from '@/date';
 interface TeamLeague {
 	id: string;
 	name: string;
+	badge : string
 }
 interface FixtureState {
 	selectedFixtureTeam: TeamLeague | null;

@@ -2,5 +2,6 @@ query getSearchTeams($searchTerm: String!) {
 	teams(where: { name: { _ilike: $searchTerm } }) {
 		id
 		name
+		badge: logo_url
 	}
 }

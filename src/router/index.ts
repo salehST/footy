@@ -66,14 +66,14 @@ const routes = [
 			requiresAuth: true,
 		},
 	},
-	// {
-	// 	path: '/profile-billing',
-	// 	name: 'profile-billing',
-	// 	component: () => import('@/views/user/ProfileBilling.vue'),
-	// 	meta: {
-	// 		requiresAuth: true,
-	// 	},
-	// },
+	{
+		path: '/profile-billing',
+		name: 'profile-billing',
+		component: () => import('@/views/user/ProfileBilling.vue'),
+		meta: {
+			requiresAuth: true,
+		},
+	},
 	{
 		path: '/forgot-password',
 		name: 'forgot-password',

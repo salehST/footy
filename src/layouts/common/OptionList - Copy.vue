@@ -5,7 +5,7 @@
 			<slot></slot>
 			<div class="option-list__option" v-for="option in options" :key="'option-' + option.id">
 
-				<!-- <img :src="option.badge ? option.badge:''"> -->
+				
 				<input
 					type="radio"
 					:id="`option-list-${_uid}-${option.id}`"
@@ -14,7 +14,7 @@
 					:checked="value && value.id && value.id === option.id"
 					v-on:change="$emit('input', option)"
 				/>
-				<label :for="`option-list-${_uid}-${option.id}`"  class="items-center gap-2 justify-start"><span class="logo-badge flex h-6 w-6 p-1 rounded-full overflow-hidden"><img :src="option.badge ? option.badge:''"  class="w-auto h-auto rounded-full overflow-hidden" alt="logo" ></span> {{ option.name }}</label>
+				<label :for="`option-list-${_uid}-${option.id}`" class="items-center gap-2 justify-start"><span class="logo-badge flex h-6 w-6 p-1 rounded-full overflow-hidden"><img :src="option.badge ? option.badge:''"  class="w-auto h-auto rounded-full overflow-hidden" alt="logo" ></span> <span>{{ option.name }}</span></label>
 			</div>
 		</template>
 		<p v-else class="text-sm">No results</p>

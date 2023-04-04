@@ -2,11 +2,11 @@
 	<div class="team-select">
 		
 		<p class="team-select__label">{{ $t('fixtures.choose_team') }}</p>
+		
 		<DropdownButton :buttonText="buttonText">
 			<template v-slot:default="{ close }">
 				<h1 class="mb-12 mt-1 text-2xl label-h">{{ $t('fixtures.select_team') }}</h1>
-				<SearchBox v-model="search" :label="'Search all teams'" />
-				{{ selection }}
+				<SearchBox v-model="search" :label="'Search all teams'" />				
 				<OptionList
 					v-if="search"
 					:title="searchTeams.length ? 'Teams matching your search' : 'No search results'"
