@@ -95,10 +95,10 @@
     left: 0;
     right: auto;
     z-index: 999;
-    padding: 8px 0;
-    border-radius: 0;    background: #183254;
-    top: 33px;
-
+    padding: 0;
+    border-radius: 0;
+    background: #183254;
+    top: 44px;
 }
 .sidebar .popover__inner .popover__close, .sidebar .popover__inner h1.label-h,.sidebar .popover::before, .sidebar label.search-box__label {
     display: none;
@@ -107,12 +107,14 @@
 
 .sidebar input[type=search].search-box__input {
     height: auto;
-    padding-left: 35px;
+    padding-left: 15px;
     padding-top: 4px;
     padding-bottom: 4px;
     color: #000000;
     position: relative;
     margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
 }
 .sidebar .dropdown__backdrop {
     display: none!important;
@@ -186,6 +188,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, i
 }
 .sidebar .league-select.dropdown .dropdown__button {
     padding-left: 60px;
+    padding-right: 60px;
 }
 .sidebar .league-select .option-list__option label img {
     display: none;
@@ -234,6 +237,30 @@ input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, i
     z-index: 9999;
     height: 550px;
 }
+.sidebar .league-select .popover__inner span.text-lg.text-gray-700.text-center.p-6{
+    color: #fff;
+}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ededed #ffffff20;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff20;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #142e50;
+    border-radius: 10px;
+    border: 1px solid #142e50;
+  }
 body{
     overflow: visible!important;
 }
