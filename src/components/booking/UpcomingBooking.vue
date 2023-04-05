@@ -58,13 +58,17 @@
 
 import Vue from 'vue';
 
+interface DropdownVisible {
+  [key: number]: boolean;
+}
+
 export default Vue.extend({
-    data() {
+  data() {
     return {
       dropdownVisible: {
-        1: true,
+        1: false,
         2: false,
-      }
+      } as DropdownVisible
     }
   },
   methods: {
@@ -78,7 +82,7 @@ export default Vue.extend({
       }
     }
   }
-});
+})
 </script>
 <style>
 @media only screen and (min-width: 767.99px) {
