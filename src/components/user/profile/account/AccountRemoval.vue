@@ -2,10 +2,10 @@
 	<div class="pane">
 		<h2 class="pane__title">{{ $t('profile.delete_account_title') }}</h2>
 		<div class="pane__body">
-			<p class="text-sm">{{ $t('profile.delete_account_explanation') }}</p>
-			<p class="text-sm font-bold mt-16">{{ $t('profile.delete_account_warning') }}</p>
+			<p class="text-base">{{ $t('profile.delete_account_explanation') }}</p>
+			<p class=" text-18 font-bold mt-16">{{ $t('profile.delete_account_warning') }}</p>
 			<button
-				class="button button--danger button--wide button--small mt-16"
+				class="button button--danger button--wide button--small mt-16 text-20"
 				type="button"
 				@click="deleteAccount"
 			>

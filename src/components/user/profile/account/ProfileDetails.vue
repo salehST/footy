@@ -12,7 +12,7 @@
 			>
 				{{ $t('interface.edit') }}
 			</button>
-			<div v-if="!editing" class="text-center">
+			<div v-if="!editing" class="text-center edit-btn-c">
 				<img class="profile-details__photo" :src="profilePhoto" alt="" v-if="!editingPhoto" />
 				<button
 					class="profile-details__photo-btn"
@@ -20,7 +20,8 @@
 					type="button"
 					v-on:click="editingPhoto = true"
 				>
-					{{ $t('profile.photo_change') }}
+					<!-- {{ $t('profile.photo_change') }} -->
+					<img src="/img/icons/icon-camera.svg" class=" h-9 w-9" alt="icon">
 				</button>
 			</div>
 			<div v-if="editingPhoto">
@@ -104,7 +105,21 @@
 		</div>
 	</div>
 </template>
+<style scoped>
+input[type=checkbox] + label{
+	font-size: 16px;
+}
+.edit-btn-c {
+    position: relative;
+}
 
+.edit-btn-c .profile-details__photo-btn {
+    position: absolute;
+    top: 40px;
+    background: transparent;
+    right: -10px;
+}
+</style>
 <script lang="ts">
 /* eslint-disable */
 import Vue from 'vue';
