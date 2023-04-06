@@ -28,9 +28,9 @@ import LanguageSwitch from '@/components/language/LanguageSwitch.vue';
 export default Vue.extend({
 	name: 'Menu',
 	components: {
-		BaseLayout,
-		LanguageSwitch,
-	},
+    BaseLayout,
+    LanguageSwitch,
+},
 	methods: {
 		async signOut() {
 			await (this as any).$store.dispatch('signOut');

@@ -7,20 +7,19 @@
                     <div class="payment-col">
                         <div class="payment-tabs">
                             <div class="payment-tab">
-                                <input type="radio" id="rd1" name="rd" checked>
-                                <label class="payment-tab-label" for="rd1"><span class="flex items-center gap-2">Credit card <img src="/img/icons/icon-cards.svg" alt="icon"></span> </label>
+                                <input type="radio" id="rda" name="rdp" checked>
+                                <label class="payment-tab-label" for="rda"><span class="flex items-center gap-2">Credit card <img src="/img/icons/icon-cards.svg" alt="icon"></span> </label>
                                 <div class="payment-tab-content">
-                                <ul class="flex items-center flex-row-reverse justify-end w-full text-left relative h-44">
-                                    <li class="cards card-2"><img src="/img/icons/card-02.svg" class="w-auto h-44 " alt=""></li>
-                                    <li class=" cards card-1"><img src="/img/icons/card-01.svg" class="w-auto h-44" alt=""></li>
-                                </ul>
-                                <button type="button" class="delete_card"> Delete card </button>
-
+                                  <ul class="flex items-center flex-row-reverse justify-end w-full text-left relative h-44">
+                                      <li class="cards card-2"><img src="/img/icons/card-02.svg" class="w-auto h-44 " alt=""></li>
+                                      <li class=" cards card-1"><img src="/img/icons/card-01.svg" class="w-auto h-44" alt=""></li>
+                                  </ul>
+                                  <button type="button" class="delete_card"> Delete card </button>
                                 </div>
                             </div>
                             <div class="payment-tab">
-                                <input type="radio" id="rd2" name="rd">
-                                <label class="payment-tab-label" for="rd2"><span class="flex items-center gap-2"> <img src="/img/icons/icon-paypal.svg" alt="icon"></span></label>
+                                <input type="radio" id="rdb" name="rdp">
+                                <label class="payment-tab-label" for="rdb"><span class="flex items-center gap-2"> <img src="/img/icons/icon-paypal.svg" alt="icon"></span></label>
                                 <div class="payment-tab-content">
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, aut.
                                 </div>

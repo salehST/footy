@@ -23,7 +23,7 @@ export default {
 		}
 		console.log('temp commit');
 		console.log('first = ', first);
-		const path = this.$route.query.rd === 'clubhouse' ? '/clubhouse' : '/profile';
+		const path = this.$route.query.rd === 'clubhouse' ? '/clubhouse' : '/profile-billing';
 		this.$router.push({ path: path });
 	},
 };
