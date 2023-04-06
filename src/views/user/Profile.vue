@@ -280,45 +280,45 @@ export default Vue.extend({
 		// ProfileBilling,
 	},
 	data() {
-		return {
-			showDiv: 1,
-			isMobile: false,
-		};
-	},
-	created() {
-		// Check if the viewport is mobile on component creation
-		this.checkMobile();
-	},
-	methods: {
-		toggleDiv(divNumber: number): void {
-			if (this.showDiv === divNumber) {
-				this.showDiv = null;
-			} else {
-				this.showDiv = divNumber;
-			}
-		},
-		checkMobile(): void {
-			const mediaQuery = window.matchMedia('(max-width: 768px)');
-			this.isMobile = mediaQuery.matches;
-			if (this.isMobile) {
-				this.showDiv = null;
-			} else if (this.showDiv === null) {
-				this.showDiv = 1;
-			}
-		},
-	},
-	mounted() {
-		// Recheck the viewport on resize
-		window.addEventListener('resize', this.checkMobile);
-	},
-	beforeDestroy() {
-		// Remove the resize event listener when the component is destroyed
-		window.removeEventListener('resize', this.checkMobile);
-	},
-	computed: {
-		activeClass(): string {
-			return this.showDiv !== null ? 'active' : '';
-		},
-	},
+  return {
+    showDiv: null,
+    isMobile: false,
+  };
+},
+created() {
+  // Check if the viewport is mobile on component creation
+  this.checkMobile();
+},
+methods: {
+  toggleDiv(divNumber: number): void {
+    if (this.showDiv === divNumber) {
+      this.showDiv = null;
+    } else {
+      this.showDiv = divNumber;
+    }
+  },
+  checkMobile(): void {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    this.isMobile = mediaQuery.matches;
+    if (this.isMobile) {
+      this.showDiv = null;
+    } else if (this.showDiv === null) {
+      this.showDiv = 1;
+    }
+  },
+},
+mounted() {
+  // Recheck the viewport on resize
+  window.addEventListener('resize', this.checkMobile);
+},
+beforeDestroy() {
+  // Remove the resize event listener when the component is destroyed
+  window.removeEventListener('resize', this.checkMobile);
+},
+computed: {
+  activeClass(): string {
+    return this.showDiv !== null ? 'active' : '';
+  },
+},
 });
 </script>
