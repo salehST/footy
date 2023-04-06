@@ -281,7 +281,7 @@ export default Vue.extend({
 	},
 	data() {
   return {
-    showDiv: null,
+    showDiv: 1 as number | null,
     isMobile: false,
   };
 },
@@ -294,7 +294,7 @@ methods: {
     if (this.showDiv === divNumber) {
       this.showDiv = null;
     } else {
-      this.showDiv = divNumber;
+      this.showDiv = divNumber as number | null;
     }
   },
   checkMobile(): void {
@@ -303,7 +303,7 @@ methods: {
     if (this.isMobile) {
       this.showDiv = null;
     } else if (this.showDiv === null) {
-      this.showDiv = 1;
+      this.showDiv = 1 as number | null;
     }
   },
 },
