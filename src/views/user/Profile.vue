@@ -74,6 +74,9 @@
 .profile-page .page-header::after{
 	display: none!important;
 }
+.mobile-btn {
+    color: #000;
+}
 }
 </style>
 <style scoped>
@@ -86,6 +89,7 @@
 	align-items: center;
 	padding: 10px;
 	position: relative;
+	
 }
 
 .mobile-btn:after {
