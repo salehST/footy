@@ -1,42 +1,81 @@
 <template>
-	<BaseLayout :headerPull="'lg'" :pageTitle="$t('global.profile')">
-		<template slot="content">
-			<div class="profile-billing hidden md:flex flex-col justify-center w-full p-4 bg-white rounded shadow mb-7">
-				<h3 class="text-20 text-brand text-center font-700 mt-4 mb-6">Welcome back, Wadud khan</h3>
-				<div class="btn-area flex flex-col md:flex-row items-center justify-evenly">
-					<button @click="toggleDiv(1)" :class="[activeClass, { activeTab: showDiv === 1 }]"
-						class="flex w-1/2 text-20 font-semibold border-b-2 border-transparent justify-center pb-4 text-brand">Profile</button>
-					<button @click="toggleDiv(2)" :class="[activeClass, { activeTab: showDiv === 2 }]"
-						class="flex w-1/2 text-20 font-semibold border-b-2 border-transparent justify-center text-center pb-4 text-brand">Billing
+	<div class="profile-page">
+		<BaseLayout :headerPull="'lg'" :pageTitle="$t('global.Profile Billing')">
+			<template slot="content">
+				<h1 class="text-white text-2xl mb-64 font-700 relative md:hidden text-center uppercase"><router-link to="/menu"><img src="/img/icons/arrow-white.svg" class=" absolute inset-0" alt=""></router-link> Profile & Billing</h1>
+				<div class="profile-billing hidden md:flex flex-col justify-center w-full p-4 bg-white rounded shadow mb-7">
+					<h3 class="text-20 text-brand text-center font-700 mt-4 mb-6">Welcome back, Wadud khan</h3>
+					<div class="btn-area flex flex-col md:flex-row items-center justify-evenly">
+						<button @click="toggleDiv(1)" :class="[activeClass, { activeTab: showDiv === 1 }]"
+							class="flex w-1/2 text-20 font-semibold border-b-2 border-transparent justify-center pb-4 text-brand">Profile</button>
+						<button @click="toggleDiv(2)" :class="[activeClass, { activeTab: showDiv === 2 }]"
+							class="flex w-1/2 text-20 font-semibold border-b-2 border-transparent justify-center text-center pb-4 text-brand">Billing
+							& Payment method</button>
+					</div>
+				</div>
+				<div class="pane">
+					<button id="pro-btn" @click="toggleDiv(1)" :class="[activeClass, { activeTab: showDiv === 1 }]"
+						class="flex md:hidden w-1/2 text-14 font-bold justify-start text-left pb-4 text-brand mobile-btn">Profile</button>
+					<div 
+						id="profile" 
+						style="display: none;" 
+						:class="{ 'hidden': showDiv === 1, 'block': showDiv !== 1 }"
+						class=" md:block show-panel" v-show="showDiv === 1 && !isMobile"
+					>
+						<ProfileDetails />
+						<RingerSettings />
+						<UserTeams />
+						<AccountDetails />
+						<CommunicationPreferences />
+						<AccountRemoval />
+					</div>
+
+					<button id="bill-btn" @click="toggleDiv(2)" :class="[activeClass, { activeTab: showDiv === 2 }]"
+						class="flex md:hidden  w-1/2 text-14 font-bold justify-start text-left pb-4 text-brand mobile-btn">Billing
 						& Payment method</button>
-				</div>
-			</div>
-			<div class="pane">
-				<button id="pro-btn" @click="toggleDiv(1)" :class="[activeClass, { activeTab: showDiv === 1 }]"
-					class="flex md:hidden w-1/2 text-20 font-semibold justify-center pb-4 text-brand mobile-btn">Profile</button>
-				<div id="profile" style="display: none;" :class="{ 'hidden': showDiv === 1, 'block': showDiv !== 1 }"
-					class=" md:block show-panel" v-show="showDiv === 1 && !isMobile">
-					<ProfileDetails />
-					<RingerSettings />
-					<UserTeams />
-					<AccountDetails />
-					<CommunicationPreferences />
-					<AccountRemoval />
-				</div>
+					<div id="billing" class="show-panel md:block" :class="{ 'hidden': showDiv === 2, 'block': showDiv !== 2 }"
+						v-show="showDiv === 2 && !isMobile">
+						<BillingAddress />
+						<PaymentMethod />
+					</div>
 
-				<button id="bill-btn" @click="toggleDiv(2)" :class="[activeClass, { activeTab: showDiv === 2 }]"
-					class="flex md:hidden  w-1/2 text-20 font-semibold justify-center text-center pb-4 text-brand mobile-btn">Billing
-					& Payment method</button>
-				<div id="billing" class="show-panel md:block" :class="{ 'hidden': showDiv === 2, 'block': showDiv !== 2 }"
-					v-show="showDiv === 2 && !isMobile">
-					<BillingAddress />
-					<PaymentMethod />
 				</div>
-
-			</div>
-		</template>
-	</BaseLayout>
+			</template>
+		</BaseLayout>
+	</div>
 </template>
+<style>
+@media only screen and (max-width: 1024px) {
+.profile-page .pane__title {
+	color: #000000;
+}
+.profile-page .page-header.has-pull + .page__content{
+	margin-top: -60px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+	position: relative;
+	z-index: 2;
+}
+.profile-page .page__content:after{
+	content: "";
+	position: absolute;
+	background: #ddd8d8;
+	top: 50px;
+	left: 0;
+	height: 100%;
+	width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+	z-index: -1;
+}
+.profile-page .page-header{
+	min-height: 10.75rem;
+}
+.profile-page .page-header::after{
+	display: none!important;
+}
+}
+</style>
 <style scoped>
 .mobile-btn {
 	width: 100%;
@@ -50,15 +89,21 @@
 }
 
 .mobile-btn:after {
-	content: "❯";
+	content: "";
 	position: absolute;
 	right: 20px;
-	transform: rotate(90deg);
+	transform: rotate(0deg);
 	transition: 300ms;
+	background: url('/img/icons/icon-arrow.svg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 24px;
+	width: 24px;
 }
 
 .activeTab.mobile-btn:after {
-	transform: rotate(-90deg);
+	transform: rotate(180deg);
 }
 
 .profile-billing .btn-area .activeTab {
@@ -151,11 +196,15 @@
 }
 
 .billing-tab-label::after {
-	content: "❯";
+	content: "";
 	width: 1em;
 	height: 1em;
 	text-align: center;
 	transition: all 0.35s;
+	background-image: url('/img/icons/icon-arrow.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .billing-tab-content {
@@ -236,9 +285,7 @@
 @media only screen and (max-width: 1024px) {}
 
 @media only screen and (min-width: 1024px) {
-	.page-header__back {
-		display: none;
-	}
+	
 
 }
 
@@ -266,7 +313,7 @@ import PaymentMethod from '@/components/user/billing/PaymentMethod.vue';
 // import ProfileBilling from '@/components/user/ProfileBilling.vue';
 
 export default Vue.extend({
-	name: 'Profile',
+	name: 'Profile Billing',
 	components: {
 		BaseLayout,
 		AccountDetails,

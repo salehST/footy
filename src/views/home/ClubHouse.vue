@@ -63,7 +63,7 @@
 			<template v-else>
 				
 				<div class="flex mb-32 items-start flex-col sm:flex-row justify-start sm:justify-between">
-						<h2 class="uppercase font-bold text-28 text-white">Upcoming Booking</h2>
+						<h2 class="uppercase font-bold text-28 text-white mb-6 md:mb-0">Upcoming Booking</h2>
 						<div class="btn-area flex flex-row gap-4 justify-between items-center w-full md:w-auto">
 							<a href="" class="org-btn mr-0 md:mr-4 w-1/2 md:w-auto justify-center flex">Book a field</a>
 							<a href="" class="outline-btn w-1/2 md:w-auto justify-center flex">View all</a>

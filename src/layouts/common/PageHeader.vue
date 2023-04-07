@@ -3,7 +3,7 @@
 		<div class="page-header__top">
 			<TopNav />
 			<img class="page-header__logo block lg:hidden" :src="footyLogo" alt="Footy" />
-			<h1 class="page-header__title flex lg:hidden">{{ title }}</h1>
+			
 			<div
 				v-if="previousRoute && previousRoute.name && !backBtnDisable"
 				@click="goToPreviousRoute"
@@ -15,6 +15,7 @@
 			
 		</div>
 		<slot></slot>
+		<!-- <h1 class="page-header__title flex lg:hidden">{{ title }}</h1> -->
 	</header>
 </template>
 

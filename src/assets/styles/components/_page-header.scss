@@ -11,8 +11,8 @@
     color: $color-white;
 
     &.has-pull + .page__content {
-        // margin-top: var(--content-pull, 0);
-        margin-top: -200px;
+        margin-top: var(--content-pull, 0);
+        // margin-top: -200px;
     }
 
     &::after {
@@ -46,7 +46,7 @@
 .page-header__logo {
     position: absolute;
     top: rem(16);
-    left: rem(8);
+    left: 1rem;
     width: rem(130);
     height: auto;
 }

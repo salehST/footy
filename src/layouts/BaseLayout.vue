@@ -58,7 +58,7 @@ export default Vue.extend({
 					pull = '-104px';
 					break;
 				case 'lg':
-					pull = '-144px';
+					pull = '-200px';
 					break;
 				default:
 					pull = '0';
