@@ -60,7 +60,7 @@
 	content: "";
 	position: absolute;
 	background: #ddd8d8;
-	top: 50px;
+	top: 45px;
 	left: 0;
 	height: 100%;
 	width: 100%;
