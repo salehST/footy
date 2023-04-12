@@ -1,6 +1,6 @@
 <template>
 	<div class="profile-page">
-		<BaseLayout :headerPull="'lg'" :pageTitle="$t('global.Profile Billing')">
+		<BaseLayout :headerPull="'lg'" :pageTitle="$t('global.profile')">
 			<template slot="content">
 				<h1 class="text-white text-2xl mb-64 font-700 relative md:hidden text-center uppercase"><router-link to="/menu"><img src="/img/icons/arrow-white.svg" class=" absolute inset-0" alt=""></router-link> Profile & Billing</h1>
 				<div class="profile-billing hidden md:flex flex-col justify-center w-full p-4 bg-white rounded shadow mb-7">
@@ -318,7 +318,7 @@ import PaymentMethod from '@/components/user/billing/PaymentMethod.vue';
 // import ProfileBilling from '@/components/user/ProfileBilling.vue';
 
 export default Vue.extend({
-	name: 'Profile Billing',
+	name: 'Profile',
 	components: {
 		BaseLayout,
 		AccountDetails,
