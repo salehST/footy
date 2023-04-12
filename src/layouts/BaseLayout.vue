@@ -1,5 +1,4 @@
-<template>
-	
+<template>	
 	<div class="base-layout relative">
 		<SideBar />
 		<div class="right-content w-full lg:pl-smd">

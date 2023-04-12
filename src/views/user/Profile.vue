@@ -4,7 +4,7 @@
 			<template slot="content">
 				<h1 class="text-white text-2xl mb-64 font-700 relative md:hidden text-center uppercase"><router-link to="/menu"><img src="/img/icons/arrow-white.svg" class=" absolute inset-0" alt=""></router-link> Profile & Billing</h1>
 				<div class="profile-billing hidden md:flex flex-col justify-center w-full p-4 bg-white rounded shadow mb-7">
-					<h3 class="text-20 text-brand text-center font-700 mt-4 mb-6">Welcome back, Wadud khan</h3>
+					<h3 class="text-20 text-brand text-center font-700 mt-4 mb-6">Welcome back, {{user.first_name}} {{user.last_name}}</h3>
 					<div class="btn-area flex flex-col md:flex-row items-center justify-evenly">
 						<button @click="toggleDiv(1)" :class="[activeClass, { activeTab: showDiv === 1 }]"
 							class="flex w-1/2 text-20 font-semibold border-b-2 border-transparent justify-center pb-4 text-brand">Profile</button>
@@ -304,6 +304,7 @@
 </style>
 <script lang="ts">
 import Vue from 'vue';
+import { mapGetters } from 'vuex';
 
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import CommunicationPreferences from '@/components/user/profile/communication/CommunicationPreferences.vue';
@@ -367,9 +368,13 @@ beforeDestroy() {
   window.removeEventListener('resize', this.checkMobile);
 },
 computed: {
+	...mapGetters([ 'getPlayer']),
+    user() {
+      	return this.getPlayer;
+    },
   activeClass(): string {
-    return this.showDiv !== null ? 'active' : '';
-  },
-},
+		return this.showDiv !== null ? 'active' : '';
+		},
+	},
 });
 </script>
