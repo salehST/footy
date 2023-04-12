@@ -70,7 +70,7 @@
 			</div>
 		  </div>
 		  <UpcomingBooking class="mb-7" />
-		  <div v-if="fixtures.length > 0" class="">
+		  <div v-if="fixtures" class="">
 		  <template v-if="fixtures">
 			<div class="flex items-start justify-between">
 			  <h2 class="text-section-title text-brand">{{ $t('clubhouse.next_fixtures') }}</h2>
