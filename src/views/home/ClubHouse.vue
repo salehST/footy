@@ -70,7 +70,6 @@
 			</div>
 		  </div>
 		  <UpcomingBooking class="mb-7" />
-		  <div v-if="fixtures" class="">
 		  <template v-if="fixtures">
 			<div class="flex items-start justify-between">
 			  <h2 class="text-section-title text-brand">{{ $t('clubhouse.next_fixtures') }}</h2>
@@ -102,13 +101,6 @@
 			  <FeedItem v-for="match in group" :key="match.id" :feedItem="match" />
 			</FeedGroup>
 		  </template>
-		</div>
-        <div v-else>            
-              <button
-                class="w-full button button--primary clubhouse-button self-start rounded-5"
-              >
-                Join new league
-              </button></div>
 		</template>
 	  </template>
 	</BaseLayout>

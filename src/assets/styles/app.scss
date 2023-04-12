@@ -124,10 +124,11 @@
     font-size: 18px;
     font-weight: 700;
     background-size: 13px;
-    padding: 0 25px;
+    padding: 0 50px;
     text-align: left;
     background-position: 90% 50%;
     border: none;
+    background-image: none;
 }
 input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, input[type=text]:focus, select:focus{
     border-color: transparent;
@@ -220,7 +221,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, i
     position: absolute;
     left: 28px;
     top: 0;
-    background: url('/img/icons/icon-football.svg');
+    background: url('/img/icons/icon-shield.svg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -228,7 +229,30 @@ input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, i
     border-radius: 50%;
     overflow: hidden;
 }
-
+.sidebar .dropdown__button{
+    position: relative;
+}
+.sidebar .dropdown__button:before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: url(/img/icons/arrow-white.svg);
+    right: 30px;
+    top: 1px;
+    z-index: 3;
+    transform: rotate(-90deg);
+    transition: 250ms;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center right;
+}
+.sidebar .league-select.dropdown .dropdown__button:before{
+    top: 5px;
+}
+.sidebar .dropdown.is-open .dropdown__button:before{
+    transform: rotate(90deg); 
+}
 .sidebar .league-select.dropdown .dropdown__button:after {
     top: 8px;
     left: 28px;
